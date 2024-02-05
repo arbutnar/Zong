@@ -10,46 +10,40 @@
 </head>
 <body>
 	<header>
-		<a href="./index.html" class="title link-body-emphasis text-decoration-none">ZONG</a>
-		<div class="user">
-			<label for="profilePicture" class="username">username</label>
-			<input type="button" name="profilePicture" id="profilePicture">
-		</div>
+		<nav class="navigation d-flex flex-row justify-content-between font-size">
+			<a href="./index.html" class="title link-body-emphasis text-decoration-none">ZONG</a>
+			<div class="user">
+				<label for="profilePicture" class="username">username</label>
+				<input type="button" name="profilePicture" id="profilePicture">
+			</div>
+			<div class="sidebar d-flex flex-column justify-content-center align-items-center">
+				<ul class="flex-column">
+					<li>
+						<a href="/accout" class="nav-link link-body-emphasis text-decoration-none">
+							<i class='bx bxs-user' ></i>Account</a>
+					</li>
+					<li>
+						<a href="/settings" class="nav-link link-body-emphasis">
+							<i class='bx bxs-cog'></i>Settings</a>
+				</li>
+				<li>
+					<a href="/dashboard" class="nav-link link-body-emphasis text-decoration-none">
+						<i class='bx bxs-dashboard' ></i>Dashboard</a>
+				</li>
+				<li>
+					<a href="/chat" class="nav-link link-body-emphasis text-decoration-none">
+						<i class='bx bxs-conversation' ></i>Chat</a>
+				</li>
+				<button>
+					<i class='bx bxs-log-out' ></i>
+					Log-out
+				</button>
+				</li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<hr>
-	<div class="sidebar d-flex flex-column justify-content-center align-items-center">
-		<ul class="flex-column">
-			<li>
-				<a href="/accout" class="nav-link link-body-emphasis text-decoration-none">
-					<i class='bx bxs-user' ></i>
-					Account
-				</a>
-			</li>
-			<li>
-				<a href="/settings" class="nav-link link-body-emphasis">
-					<i class='bx bxs-cog'></i>
-					Settings
-				</a>
-			</li>
-			<li>
-				<a href="/dashboard" class="nav-link link-body-emphasis text-decoration-none">
-					<i class='bx bxs-dashboard' ></i>
-					Dashboard
-				</a>
-			</li>
-			<li>
-				<a href="/chat" class="nav-link link-body-emphasis text-decoration-none">
-					<i class='bx bxs-conversation' ></i>
-					Chat
-				</a>
-			</li>
-			<button>
-				<i class='bx bxs-log-out' ></i>
-				Log-out
-			</button>
-			</li>
-		</ul>
-	</div>
 	<main>
 		<div class="gameMods">
 			<div class="ai"><button>Play against ai</button></div>
