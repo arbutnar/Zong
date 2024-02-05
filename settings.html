@@ -10,30 +10,55 @@
 </head>
 <body>
 	<header>
-		<a href="./index.html" class="title link-body-emphasis text-decoration-none">ZONG</a>
-		<div class="user">
-			<label for="profilePicture" class="username">username</label>
-			<input type="button" name="profilePicture" id="profilePicture">
-		</div>
+		<nav class="navigation d-flex flex-row justify-content-between">
+			<a href="./index.html" class="title link-body-emphasis text-decoration-none">ZONG</a>
+			<div class="user">
+				<label for="profilePicture" class="username">username</label>
+				<input type="button" name="profilePicture" id="profilePicture">
+			</div>
+			<div class="sidebar d-flex flex-column justify-content-center align-items-center">
+				<ul class="flex-column">
+					<li>
+						<a href="/accout" class="nav-link link-body-emphasis text-decoration-none">
+							<i class='bx bxs-user' ></i>Account</a>
+					</li>
+					<li>
+						<a href="/settings" class="nav-link link-body-emphasis">
+							<i class='bx bxs-cog'></i>Settings</a>
+				</li>
+				<li>
+					<a href="/dashboard" class="nav-link link-body-emphasis text-decoration-none">
+						<i class='bx bxs-dashboard' ></i>Dashboard</a>
+				</li>
+				<li>
+					<a href="/chat" class="nav-link link-body-emphasis text-decoration-none">
+						<i class='bx bxs-conversation' ></i>Chat</a>
+				</li>
+				<button>
+					<i class='bx bxs-log-out' ></i>
+					Log-out
+				</button>
+				</li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<hr>
 	<main>
-		<div class="settings">
-			<h1>Settings</h1>
+		<div class="settings d-flex flex-column justify-content-center align-items-center">
+			<h1 cl>Settings</h1>
 			<hr>
-			<div>
-				<div class="language">
-					<h2><i class='bx bx-world'></i>Language Settings</h2>
-					<span>Set language for the entire website.</span>
-				</div>
-				<div class="blocklist">
-					<h2><i class='bx bx-block'></i>User Blocklist</h2>
-					<span>Choose who you don't want to interact with.</span>
-				</div>
-				<div class="security">
-					<h2><i class='bx bxs-lock-alt'></i>Language Settings</h2>
-					<span>Description of owr security mesures and enable two-factor Auth.</span>
-				</div>
+			<div class="language">
+				<h2><i class='bx bx-world'></i>Language Settings</h2>
+				<span>Set language for the entire website.</span>
+			</div>
+			<div class="blocklist">
+				<h2><i class='bx bx-block'></i>User Blocklist</h2>
+				<span>Choose who you don't want to interact with.</span>
+			</div>
+			<div class="security">
+				<h2><i class='bx bxs-lock-alt'></i>Language Settings</h2>
+				<span>Description of owr security mesures and enable two-factor Auth.</span>
 			</div>
 		</div>
 	</main>
