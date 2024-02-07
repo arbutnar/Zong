@@ -159,6 +159,3 @@ main h1 {
 	border: solid black 3px;
 }
 
-.col:last-child {
-	margin-right: 0;
-}
