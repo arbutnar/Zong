@@ -1,135 +1,65 @@
+header .navbar {
+	padding: 1rem 3rem;
+}
+
 #title {
 	font-size: 4rem;
 }
 
-@media (max-width:)
-
 #sidebar {
 	top: 129px;
-	bottom: 38px;
-	width: 250px;
-}
-
-#sidebar li {
-	display: flex;
-	font-size: 1.5rem;
-	margin-top: 2rem;
-}
-
-#sidebar li svg {
-	margin-bottom: 6px;
-}
-
-#footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	font-size: 0.85rem;
-}
-<<<<<<< HEAD
-hr {
-	margin: 0 2rem 0 2rem;
-}
-
-.navigation {	
-	font-size: 2rem;
-}
-
-.title {
-	font-size: 3em;
-	margin: 2rem 0rem 1rem 3rem;
-}
-
-.user {
-	display: flex;
-	font-size: 1.5rem;
-	margin: 3rem 3rem 0rem 0rem;
-}
-
-.username {
-	margin: 3rem 0.5rem 0rem 0rem;
-}
-
-#profilePicture {
-	width: 7em;
-	font-size: 0.7rem;
-	margin-bottom: 1rem;
-	border-radius: 50%;
-	background: center/cover url("images/profile_image.png") no-repeat;
-}
-
-.sidebar {
-	width: 140px;
-	position: absolute;
-	top: 144px;
-	right: 2rem;
-	visibility: hidden;
-	font-size: 0.5em;
-	border: solid 2px black;
-	border-top: none;
-	border-bottom-left-radius: 10%;
-	border-bottom-right-radius: 10%;
-	background-color: rgba(61, 75, 134, 0.548);
-}
-
-.sidebar li {
-	margin-top: 1.5rem;
-}
-
-.sidebar button {
-	margin-top: 1.5rem;
-	background-color: transparent;
-	padding: 1rem;
-	padding-left: 0;
-	border-top: solid black 1px;
-	border-right: 0;
-	border-bottom: 0;
-	border-left: 0;
-}
-
-.gameMods {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	bottom: 35px;
 	width: 300px;
-	height: 300px;
-	border: solid 3px black;
-	background-color: rgba(46, 59, 112, 0.548);
 }
 
-.gameMods button:not(:last-child) {
-	margin-bottom: 1rem;
+#sidebar li a:hover {
+	background-color: rgba(55, 94, 144, 0.512);
 }
 
-.gameMods button {
-	padding: 0.5rem;
+footer {
+	bottom: 0;
+	font-size: 0.75rem;
 }
 
-main h1 {
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 3rem;
-	margin: 5rem 0 0 3rem;
+@media (max-width: 565px) {
+	header span{
+		display: none;
+	}
+	header .navbar {
+		padding: 1rem 1.5rem;
+	}
+	header #title {
+		font-size: 4rem;
+	}
+	#sidebar {
+		bottom: 53px;
+		width: 100%;
+	}
+	footer > div {
+		flex-direction: column;
+	}
+	#sidebar li:first-child {
+		margin-top: 0;
+	}
 }
 
-.settings {
-	font-family: 'Barlow Semi Condensed', sans-serif;
-	font-size: 1.5rem;
-	letter-spacing: 4px;
-	margin: 2rem 3rem 0 3rem;
+@media (max-width: 451px) {
+	#sidebar {
+		bottom: 43px;
+	}
+	footer > div {
+		font-size: 0.55rem;
+	}
 }
 
-.settings h2 {
-	font-size: 2rem;
-	font-weight: bolder;
+@media (max-width: 280px) {
+	header #title {
+		font-size: 3rem;
+	}
 }
 
-.settings .col {
-	background-color: palegoldenrod;
-	height: 5em;
-	margin-right: 20px;
-	border: solid black 3px;
+@media (max-height: 790px) {
+	#sidebar li {
+		font-size: 16px;
+	}
 }
-
-=======
->>>>>>> 9354801 (working on index.html)

@@ -12,78 +12,111 @@
 </head>
 <body>
 	<header class="fixed-top">
-		<nav class="navbar border-bottom px-5 py-3">
-			<div>
-				<a href="/" class="link-body-emphasis text-decoration-none" id="title">ZONG</a>
-			</div>
+		<nav class="navbar align-items-center border-bottom">
+			<a href="/" class="link-body-emphasis text-decoration-none" id="title">ZONG</a>
 			<div class="user m-0">
-				<a href="#sidebar" class="profilePicture d-flex align-items-baseline navbar-toggle text-nowrap d-block link-body-emphasis text-decoration-none" data-bs-toggle="offcanvas" aria-controls="sidebar">
+				<a href="#sidebar" class="profilePicture d-flex align-items-baseline navbar-toggle text-nowrap d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="offcanvas" aria-controls="sidebar">
 					<span class="fs-3">username</span>
 					<img src="images\profile_image.png" alt="mdo" width="64" height="64" class="rounded-circle">
 				</a>
-				<div class="offcanvas offcanvas-end" id="sidebar" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" aria-labelledby="sidebar-label">
-					<div class="offcanvas-header">
+				<div class="offcanvas offcanvas-end fs-3" id="sidebar" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" aria-labelledby="sidebar-label">
+					<div class="offcanvas-header pb-1">
 						<h5 class="offcanvas-title" id="sidebar"></h5>
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
-					<div class="offcanvas-body d-flex flex-column">
-						<ul>
+					<div class="offcanvas-body container-fluid p-0">
+						<ul class="list-unstyled">
 							<li>
-								<a href="/accout" class="btn btn-hover-light nav-link link-body-emphasis text-decoration-none">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-									<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-								</svg>
-								Account
+								<a href="/accout" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-person-fill" viewBox="0 0 16 16">
+											<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Account
+									</div>
 								</a>
 							</li>
 							<li>
-								<a href="/messages" class="nav-link link-body-emphasis">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-									<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-								</svg>
-								Messages
+								<a href="/messages" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-envelope-fill" viewBox="0 0 16 16">
+											<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Messages
+									</div>
 								</a>
 							</li>
 							<li>
-								<a href="/other_users" class="nav-link link-body-emphasis text-decoration-none">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-									<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-								</svg>
-								Other Users
+								<a href="/other_users" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-people-fill" viewBox="0 0 16 16">
+											<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Other users
+									</div>
 								</a>
 							</li>
 							<li>
-								<a href="/statistics" class="nav-link link-body-emphasis">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-								</svg>
-								Statistics
+								<a href="/stats" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-graph-up-arrow" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Stats
+									</div>
 								</a>
 							</li>
 							<li>
-								<a href="/security" class="nav-link link-body-emphasis text-decoration-none">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-									<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-								</svg>
-								Security
+								<a href="/security" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-lock-fill" viewBox="0 0 16 16">
+											<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Security
+									</div>
 								</a>
 							</li>
 							<li>
-								<a href="/language" class="nav-link link-body-emphasis text-decoration-none">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
-									<path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
-									<path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
-								</svg>
-								Language
+								<a href="/language" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-translate" viewBox="0 0 16 16">
+											<path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+											<path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+										</svg>
+									</div>
+									<div class="col-8 dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="false">
+										Language
+										<!--<ul class="dropdown-menu text-small show" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
+											<li><a class="dropdown-item" href="#">New project...</a></li>
+											<li><a class="dropdown-item" href="#">Settings</a></li>
+											<li><a class="dropdown-item" href="#">Profile</a></li>
+											<li><hr class="dropdown-divider"></li>
+											<li><a class="dropdown-item" href="#">Sign out</a></li>
+										  </ul>-->
+									</div>
 								</a>
 							</li>
-							<li class="border-top pt-4">
-								<a href="/language" class="nav-link link-body-emphasis text-decoration-none">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-									<path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-								</svg>
-								Log-out
+							<li class="border-top">
+								<a href="/logout" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 w-100">
+									<div class="col-4 text-end">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-box-arrow-left" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+											<path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+										</svg>
+									</div>
+									<div class="col-8">
+										Log-out
+									</div>
 								</a>
 							</li>
 						</ul>
@@ -101,39 +134,20 @@
 			</div>
 		</div>-->
 	</main>
-<<<<<<< HEAD
-	<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mx-3 border-top">
-		<p class="col-md-4 mb-0 text-body-secondary">© 2024 Zong company</p>
-		<a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-		  <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-		  <span>icon</span>
-		</a>
-		<ul class="nav col-md-4 justify-content-end mr-3">
-		  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-		  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Tearms</a></li>
-		  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Privicy</a></li>
-		  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Resources</a></li>
-		  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Creators</a></li>
-		</ul>
-	  </footer>
-	  <script src="../index.js"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-=======
-	<footer id="footer" class="border-top p-3">
-		<div class="container-fluid d-flex justify-content-between">
+	<footer class="position-absolute w-100 border-top">
+		<div class="container-fluid d-flex justify-content-between align-items-center py-2">
 			<p class="col-md-4 mb-0 text-body-secondary">© Copyright 2024&nbsp; All rights reserved.</p>
 			<div>
-				<ul class="nav align-items-center justify-content-start fw-bold">
-					<li class="nav-item text-uppercase"><a href="/" title="About Us" class="nav-link">About Us</a></li>
-					<li class="nav-item text-uppercase"><a href="/" title="Resources" class="nav-link">Resources</a></li>
-					<li class="nav-item text-uppercase"><a href="/" title="General Terms and Conditions" class="full-text nav-link">General Terms and Conditions</a></li>
+				<ul class="nav row fw-bold">
+					<li class="nav-item text-uppercase col-3"><a href="/" title="About Us" class="text-decoration-none">About Us</a></li>
+					<li class="nav-item text-uppercase col-3"><a href="/" title="Resources" class="text-decoration-none">Resources</a></li>
+					<li class="nav-item text-uppercase col"><a href="/" title="Terms and Conditions" class="text-decoration-none">Terms and Conditions</a></li>
 				</ul>
 			</div>
 		</div>
 	</footer>
 	<script src="index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
->>>>>>> 9354801 (working on index.html)
 </body>
 </html>
 
