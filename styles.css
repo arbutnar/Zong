@@ -1,60 +1,32 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+#title {
+	font-size: 4rem;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+@media (max-width:)
+
+#sidebar {
+	top: 129px;
+	bottom: 38px;
+	width: 250px;
 }
-body {
-	line-height: 1;
+
+#sidebar li {
+	display: flex;
+	font-size: 1.5rem;
+	margin-top: 2rem;
 }
-ol, ul {
-	list-style: none;
+
+#sidebar li svg {
+	margin-bottom: 6px;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-body {
-	font-size: 1rem;
-}
-main, .indexMain {
-	position: absolute;
-	top: 144px;
-	bottom: 65px;
-}
-footer {
+
+#footer {
 	position: absolute;
 	bottom: 0;
-	width: 99%;
-	height: 65px;
+	width: 100%;
+	font-size: 0.85rem;
 }
+<<<<<<< HEAD
 hr {
 	margin: 0 2rem 0 2rem;
 }
@@ -159,3 +131,5 @@ main h1 {
 	border: solid black 3px;
 }
 
+=======
+>>>>>>> 9354801 (working on index.html)
