@@ -2,6 +2,10 @@ header .navbar {
 	padding: 1rem 3rem;
 }
 
+.fixed-top {
+	z-index: 1030;
+}
+
 #title {
 	font-size: 4rem;
 }
@@ -14,6 +18,11 @@ header .navbar {
 
 #sidebar li a:hover {
 	background-color: rgba(55, 94, 144, 0.512);
+}
+
+.languageDropdown {
+	margin-right: 16px;
+	border: 0;
 }
 
 footer {
