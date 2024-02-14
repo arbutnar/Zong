@@ -25,3 +25,8 @@ footer {
 	bottom: 0;
 	font-size: 0.75rem;
 }
+
+.table-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
