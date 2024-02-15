@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Zong</title>
-	<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/styles.css" rel="stylesheet">
-	<link href="assets/css/responsive.css" rel="stylesheet">
+	<link href="../static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../static/css/styles.css" rel="stylesheet">
+	<link href="../static/css/responsive.css" rel="stylesheet">
 </head>
 <body>
 	<header class="fixed-top">
@@ -15,7 +15,7 @@
 			<div class="user m-0">
 				<a href="#sidebar" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" class="profilePicture d-flex align-items-baseline text-nowrap link-body-emphasis text-decoration-none dropdown-toggle">
 					<span class="fs-3">username</span>
-					<img src="images\profile_image.png" alt="mdo" width="64" height="64" class="rounded-circle">
+					<img src="../static/images/profile_image.png" alt="mdo" width="64" height="64" class="rounded-circle">
 				</a>
 				<div class="offcanvas offcanvas-end fs-3" id="sidebar" data-bs-backdrop="false" aria-labelledby="sidebarLabel">
 					<div class="offcanvas-header pb-1">
@@ -23,9 +23,9 @@
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body container-fluid p-0">
-						<ul class="navbar-nav navbar-list list-unstyled">
+						<ul class="navbar-nav navbar-list list-unstyled fs-4">
 							<li class="navbar-item">
-								<a href="templates/account.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="contents/account.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-person-fill" viewBox="0 0 16 16">
 											<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
@@ -37,7 +37,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="templates/messages.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="contents/messages.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-envelope-fill" viewBox="0 0 16 16">
 											<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
@@ -49,7 +49,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="templates/other_users.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="contents/other_users.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-people-fill" viewBox="0 0 16 16">
 											<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
@@ -61,7 +61,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="templates/statistics.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="contents/statistics.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-graph-up-arrow" viewBox="0 0 16 16">
 											<path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
@@ -73,7 +73,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="templates/security.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="contents/security.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-lock-fill" viewBox="0 0 16 16">
 											<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
@@ -87,7 +87,7 @@
 							<li class="dropdown navbar-item">
 								<a href="#" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-nowrap row d-flex align-items-baseline nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
-										<img src="images\england.svg" alt="mdo" width="24" height="24">
+										<img src="../static/images/england.svg" alt="mdo" width="24" height="24">
 									</div>
 									<div class="col-6">
 										English
@@ -99,13 +99,13 @@
 									</li>
 									<li class="pt-0">
 										<a href="/it" title="Italiano" class="dropdown-item">
-											<img src="images\italy.svg" alt="mdo" width="16" height="16">
+											<img src="../static/images/italy.svg" alt="mdo" width="16" height="16">
 											<span>Italiano</span>
 										</a>
 									</li>
 									<li class="pt-0">
 										<a href="/rom" title="Română" class="dropdown-item">
-											<img src="images\romania.svg" alt="mdo" width="16" height="16">
+											<img src="../static/images/romania.svg" alt="mdo" width="16" height="16">
 											<span>Română</span>
 										</a>
 									</li>
@@ -151,7 +151,7 @@
 			</div>
 		</div>
 	</footer>
-	<script src="assets/js/index.js"></script>
-	<script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="../static/js/index.js"></script>
+	<script src="../static/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
