@@ -7,15 +7,17 @@
 	<link href="../static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="../static/css/styles.css" rel="stylesheet">
 	<link href="../static/css/responsive.css" rel="stylesheet">
+	<script defer src="../static/js/index.js"></script>
+	<script defer src="../static/js/bootstrap/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-	<header class="fixed-top">
-		<nav class="navbar align-items-center border-bottom">
-			<a href="index.html" class="link-body-emphasis text-decoration-none" id="title">ZONG</a>
-			<div class="user m-0">
+<body class="overflow-hidden">
+	<header class="header container-fluid">
+		<nav class="navbar align-items-center border-bottom	">
+			<a href="index.html" id="title" class="display-2 link-body-emphasis text-decoration-none">ZONG</a>
+			<div id="user" class="fs-4 m-0">
 				<a href="#sidebar" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" class="profilePicture d-flex align-items-baseline text-nowrap link-body-emphasis text-decoration-none dropdown-toggle">
-					<span class="fs-3">username</span>
-					<img src="../static/images/profile_image.png" alt="mdo" width="64" height="64" class="rounded-circle">
+					<span id="username" class="me-1">username</span>
+					<img src="../static/images/profile_image.png" alt="mdo" width="64" height="64" id="profile_image" class="img-fluid rounded-circle">
 				</a>
 				<div class="offcanvas offcanvas-end fs-3" id="sidebar" data-bs-backdrop="false" aria-labelledby="sidebarLabel">
 					<div class="offcanvas-header pb-1">
@@ -25,7 +27,7 @@
 					<div class="offcanvas-body container-fluid p-0">
 						<ul class="navbar-nav navbar-list list-unstyled fs-4">
 							<li class="navbar-item">
-								<a href="contents/account.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="views/account.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-person-fill" viewBox="0 0 16 16">
 											<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
@@ -37,7 +39,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="contents/messages.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="views/messages.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-envelope-fill" viewBox="0 0 16 16">
 											<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
@@ -49,7 +51,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="contents/other_users.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="views/other_users.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-people-fill" viewBox="0 0 16 16">
 											<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
@@ -61,7 +63,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="contents/statistics.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="views/statistics.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-graph-up-arrow" viewBox="0 0 16 16">
 											<path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
@@ -73,7 +75,7 @@
 								</a>
 							</li>
 							<li class="navbar-item">
-								<a href="contents/security.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
+								<a href="views/security.html" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
 									<div class="col-4 text-end">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-lock-fill" viewBox="0 0 16 16">
 											<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
@@ -139,19 +141,17 @@
 			</div>
 		</div>-->
 	</main>
-	<footer class="position-absolute w-100 border-top">
+	<footer class="container-fluid position-absolute w-100 border-top">
 		<div class="container-fluid d-flex justify-content-between align-items-center py-2">
 			<p class="col-md-4 mb-0 text-body-secondary">© Copyright 2024&nbsp; All rights reserved.</p>
 			<div>
 				<ul class="nav row fw-bold">
 					<li class="nav-item text-uppercase col-3"><a href="/" title="About Us" class="text-decoration-none">About Us</a></li>
-					<li class="nav-item text-uppercase col-3"><a href="/" title="Resources" class="text-decoration-none">Modules</a></li>
+					<li class="nav-item text-uppercase col-3"><a href="/" title="Resources" class="text-decoration-none">Resources</a></li>
 					<li class="nav-item text-uppercase col"><a href="/" title="Terms and Conditions" class="text-decoration-none">Terms and Conditions</a></li>
 				</ul>
 			</div>
 		</div>
 	</footer>
-	<script src="../static/js/index.js"></script>
-	<script src="../static/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
