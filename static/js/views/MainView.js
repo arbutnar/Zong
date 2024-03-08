@@ -1,4 +1,6 @@
-class MainView {
+import View from "./View.js"
+
+class MainView extends View {
 	_parentElement = document.querySelector('main');
 
 	addHandlerView(handler) {

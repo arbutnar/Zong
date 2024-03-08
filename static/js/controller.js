@@ -20,16 +20,9 @@ const controlMain = function () {
 	mainView.render(match.view);
 };
 
-// const controlAccount = function () {
-
-// 	// accountView.render(model.state.user);
-// 	alert("inside controlAccount function ");
-// };
-
 const init = function () {
 	// model.loadPage();
 	mainView.addHandlerView(controlMain);
-	//accountView.addHandlerRender(controlAccount);
 };
 
 init();

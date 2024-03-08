@@ -5,11 +5,11 @@
 }
 
 @media (max-width: 710px) {
-	.header #profile_image {
+	#header #profile_image {
 		height: 54px;
 		width: 54px;
 	}
-	.header #username {
+	#header #username {
 		font-size: 20px;
 	}
 	footer {
@@ -18,11 +18,11 @@
 }
 
 @media (max-width: 574px) {
-	.header #profile_image {
+	#header #profile_image {
 		height: 44px;
 		width: 44px;
 	}
-	.header .navbar {
+	#header .navbar {
 		padding: 1rem 1.5rem;
 	}
 	footer {
@@ -30,9 +30,6 @@
 	}
 	footer > div {
 		flex-direction: column;
-	}
-	#sidebar {
-		bottom: 53px;
 	}
 	#sidebar li:first-child {
 		margin-top: 0;
@@ -44,11 +41,10 @@
 }
 
 @media (max-width: 414px) {
-	.header #username {
+	#header #username {
 		display: none;
 	}
 	#sidebar {
-		bottom: 53px;
 		width: 100%;
 		border-left: 0;
 	}
@@ -58,10 +54,10 @@
 }
 
 @media (max-width: 310px) {
-	.header #profile_image {
+	#header #profile_image {
 		display: none;
 	}
-	.header #user {
+	#header #user {
 		align-self: end;
 	}
 	footer .nav {
