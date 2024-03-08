@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import mainView from './views/MainView.js';
+import gameModView from './views/GameModView.js';
 import accountView from './views/AccountView.js';
 import messagesView from './views/MessagesView.js';
 import otherUsersView from './views/OtherUsersView.js';
@@ -8,7 +9,7 @@ import securityView from './views/SecurityView.js';
 
 const controlMain = function () {
 	const routes = [
-		{ path: "/", view: "root"},
+		{ path: "/", view: gameModView},
 		{ path: "/account", view: accountView },
 		{ path: "/messages", view: messagesView },
 		{ path: "/other-users", view: otherUsersView },
