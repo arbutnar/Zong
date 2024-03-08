@@ -1,9 +1,14 @@
 import NavView from "./NavView.js"
 
 class OtherUsersView extends NavView {
-	generateMarkup() {
+
+	constructor() {
+		super();
+	}
+
+	_generateMarkup() {
 		return `
-			${super.generateMarkup(this.constructor.name)}
+			${super._generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<h2 class="text-primary-emphasis">Search Users</h2>
 				<p class="fst-italic">This is your friend list. You may add a user to the list by entering his username.</p>

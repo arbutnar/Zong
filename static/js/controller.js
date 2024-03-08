@@ -1,28 +1,33 @@
 import * as model from './model.js';
 import mainView from './views/MainView.js';
-import gameModView from './views/GameModView.js';
-import accountView from './views/AccountView.js';
-import messagesView from './views/MessagesView.js';
-import otherUsersView from './views/OtherUsersView.js';
+import accountView from './views/_AccountView.js';
+import messagesView from './views/_MessagesView.js';
+import otherUsersView from './views/_OtherUsersView.js';
 import dashboardView from './views/DashboardView.js';
-import securityView from './views/SecurityView.js';
+import securityView from './views/_SecurityView.js';
+import tournamentView from './views/TournamentView.js';
+import practiceView from './views/PracticeView.js';
+import versusView from './views/VersusView.js';
+
+const routes = [
+	{ path: "/", view: mainView },
+	{ path: "/account", view: accountView },
+	{ path: "/messages", view: messagesView },
+	{ path: "/other-users", view: otherUsersView },
+	{ path: "/dashboard", view: dashboardView },
+	{ path: "/security", view: securityView },
+	{ path: "/tournament", view: tournamentView },
+	{ path: "/versus", view: versusView },
+	{ path: "/practice", view: practiceView },
+];
 
 const controlMain = function () {
-	const routes = [
-		{ path: "/", view: gameModView },
-		{ path: "/account", view: accountView },
-		{ path: "/messages", view: messagesView },
-		{ path: "/other-users", view: otherUsersView },
-		{ path: "/dashboard", view: dashboardView },
-		{ path: "/security", view: securityView },
-	];
-
 	const match = routes.find(route => route.path === location.pathname);
-	mainView.render(match.view, model.state.user);
+	console.log(location.pathname);
+	match.view.render(model.state.user);
 };
 
 const init = function () {
-	model.loadPage();
 	mainView.addHandlerView(controlMain);
 };
 
