@@ -1,4 +1,4 @@
-// import * as model from './model.js';
+import * as model from './model.js';
 import mainView from './views/MainView.js';
 import accountView from './views/AccountView.js';
 import messagesView from './views/MessagesView.js';
@@ -8,7 +8,7 @@ import securityView from './views/SecurityView.js';
 
 const controlMain = function () {
 	const routes = [
-		// { path: "/", view: "root"},
+		{ path: "/", view: "root"},
 		{ path: "/account", view: accountView },
 		{ path: "/messages", view: messagesView },
 		{ path: "/other-users", view: otherUsersView },
@@ -16,12 +16,12 @@ const controlMain = function () {
 		{ path: "/security", view: securityView },
 	];
 
-	const match = routes.find(route => route.path === location.pathname)
-	mainView.render(match.view);
+	const match = routes.find(route => route.path === location.pathname);
+	mainView.render(match.view, model.state.user);
 };
 
 const init = function () {
-	// model.loadPage();
+	model.loadPage();
 	mainView.addHandlerView(controlMain);
 };
 
