@@ -1,7 +1,7 @@
-import View from "./View.js"
+import View from "./NavView.js"
 
 class GameModView extends View {
-	getMarkup() {
+	generateMarkup() {
 		return `
 			<h1 class="border-bottom border-secondary text-primary-emphasis py-2 mb-4">Game Mode</h1>
 			<div class="row">

@@ -1,8 +1,9 @@
-import View from "./View.js"
+import NavView from "./NavView.js"
 
-class MessagesView extends View {
-	getMarkup() {
+class MessagesView extends NavView {
+	generateMarkup() {
 		return `
+			${super.generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<form method="POST">
 					<div class="row">

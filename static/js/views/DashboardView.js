@@ -1,8 +1,9 @@
-import View from "./View.js"
+import NavView from "./NavView.js"
 
-class DashboardView extends View {
-	getMarkup() {
+class DashboardView extends NavView {
+	generateMarkup() {
 		return `
+			${super.generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<h2 class="pt-2 text-primary-emphasis">User summary</h2>
 				<p class="fst-italic">Personal statistics, game sessions and performance metrics.</p>

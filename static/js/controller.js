@@ -9,7 +9,7 @@ import securityView from './views/SecurityView.js';
 
 const controlMain = function () {
 	const routes = [
-		{ path: "/", view: gameModView},
+		{ path: "/", view: gameModView },
 		{ path: "/account", view: accountView },
 		{ path: "/messages", view: messagesView },
 		{ path: "/other-users", view: otherUsersView },

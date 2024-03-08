@@ -1,8 +1,9 @@
-import View from "./View.js"
+import NavView from "./NavView.js"
 
-class OtherUsersView extends View {
-	getMarkup() {
+class OtherUsersView extends NavView {
+	generateMarkup() {
 		return `
+			${super.generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<h2 class="text-primary-emphasis">Search Users</h2>
 				<p class="fst-italic">This is your friend list. You may add a user to the list by entering his username.</p>

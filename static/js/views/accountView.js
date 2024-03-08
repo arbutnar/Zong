@@ -1,13 +1,14 @@
-import View from "./View.js"
+import NavView from "./NavView.js"
 
-class AccountView extends View {
+class AccountView extends NavView {
 	
 	constructor() {
 		super();
 	}
 
-	getMarkup(data) {
+	generateMarkup(data) {
 		return `
+			${super.generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<h2 class="pt-2 text-primary-emphasis">${data.username}</h2>
 				<div class="row py-2">
