@@ -1,6 +1,12 @@
-export default class NavView {
+import View from "./View.js";
+
+export default class extends View {
+
+	constructor() {
+		super();
+	}
 	
-	generateMarkup(view) {
+	_generateMarkup(view) {
 		return `
 			<style>
 				#${view} {
