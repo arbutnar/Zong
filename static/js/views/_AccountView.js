@@ -6,9 +6,9 @@ class AccountView extends NavView {
 		super();
 	}
 
-	generateMarkup(data) {
+	_generateMarkup(data) {
 		return `
-			${super.generateMarkup(this.constructor.name)}
+			${super._generateMarkup(this.constructor.name)}
 			<div class="col-12 col-md-9 mt-5 ps-3">
 				<h2 class="pt-2 text-primary-emphasis">${data.username}</h2>
 				<div class="row py-2">

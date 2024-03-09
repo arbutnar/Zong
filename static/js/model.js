@@ -40,3 +40,17 @@ export const loadPage = async function () {
 		throw err;
 	}
 };
+
+export const loadUser = async function () {
+	try {
+		const res = await fetch(
+			`https://0.0.0.0/userManagement`
+		)
+		if (!res.ok) throw new Error(`${res.status}`);
+		const data = await res.json();
+		return data.data;
+	} catch (err) {
+		alert(err);
+	}
+};
+
