@@ -12,6 +12,7 @@ class MainView {
 			history.pushState(null, null, link.href);
 			handler();
 		});
+		window.addEventListener("popstate", handler);
 	};
 
 	render(view, data) {

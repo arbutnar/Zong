@@ -21,7 +21,7 @@
 				</a>
 			</div>
 		</nav>
-		<div class="offcanvas offcanvas-end fs-3" id="sidebar" aria-labelledby="sidebarLabel" data-bs-scroll="true" data-bs-backdrop="false">
+		<div class="offcanvas offcanvas-end fs-3" id="sidebar" aria-labelledby="sidebarLabel" data-bs-scroll="true" data-bs-backdrop="false" data-bs-auto-close="outside">
 			<div class="offcanvas-header pb-1">
 				<h5 class="offcanvas-title" id="sidebar"></h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -88,28 +88,28 @@
 							</div>
 						</a>
 					</li>
-					<li class="dropdown navbar-item">
-						<a href="#" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-nowrap row d-flex align-items-baseline nav-link link-body-emphasis text-decoration-none py-3 w-100">
+					<li class="dropdown navbar-item" data-bs-auto-close="outside">
+						<a href="#" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-nowrap row d-flex align-items-baseline link-body-emphasis text-decoration-none py-3 w-100">
 							<div class="col-4 text-end">
-								<img src="static/images/england.svg" alt="mdo" width="24" height="24">
+								<img src="../static/images/england.svg" alt="mdo" width="24" height="24">
 							</div>
 							<div class="col-6">
 								English
 							</div>
 						</a>
-						<ul class="languageDropdown dropdown-menu dropdown-menu-end text-center border-top" data-bs-popper="static">
+						<ul class="languageDropdown dropdown-menu text-center border-top w-100">
 							<li class="pt-0">
 								<h6 class="dropdown-header">Choose a language</h6>
 							</li>
 							<li class="pt-0">
 								<a href="/it" title="Italiano" class="dropdown-item">
-									<img src="static/images/italy.svg" alt="mdo" width="16" height="16">
+									<img src="../static/images/italy.svg" alt="mdo" width="16" height="16">
 									<span>Italiano</span>
 								</a>
 							</li>
 							<li class="pt-0">
 								<a href="/rom" title="Română" class="dropdown-item">
-									<img src="static/images/romania.svg" alt="mdo" width="16" height="16">
+									<img src="../static/images/romania.svg" alt="mdo" width="16" height="16">
 									<span>Română</span>
 								</a>
 							</li>
