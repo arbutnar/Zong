@@ -21,9 +21,10 @@ const routes = [
 	{ path: "/practice", view: practiceView },
 ];
 
-const controlMain = function () {
+const controlMain = async function () {
 	const match = routes.find(route => route.path === location.pathname);
 	console.log(location.pathname);
+	const user = await model.loadUser();
 	match.view.render(model.state.user);
 };
 
