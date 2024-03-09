@@ -4,7 +4,7 @@
 	}
 }
 
-@media (max-width: 710px) {
+@media (max-width: 720px) {
 	#header #profile_image {
 		height: 54px;
 		width: 54px;
@@ -38,6 +38,9 @@
 		flex-direction: column;
 		align-items: center;
 	}
+	/* #logo {
+		display: none;
+	} */
 }
 
 @media (max-width: 414px) {

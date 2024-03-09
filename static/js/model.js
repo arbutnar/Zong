@@ -12,18 +12,12 @@ export const state = {
 const userObj = function () {
 	// const { user } = data.data;
 	return {
-		// user.id
 		id: 1,
-		// user.username
 		username: "arbutnar",
-		// user.firstName
 		firstName: "Arianna",
-		// user.lastName
 		lastName: "Butnaru",
-		// user.email
 		email: "arbutnar@student.42roma.it",
 		profileImage: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
-		// user.campus
 		campus: "Rome",
 	};
 };
@@ -43,11 +37,7 @@ export const loadPage = async function () {
 
 export const loadUser = async function () {
 	try {
-		const res = await fetch(
-			`https://0.0.0.0/userManagement`
-		)
-		if (!res.ok) throw new Error(`${res.status}`);
-		const data = await res.json();
+		const data = await AJAX(`https://0.0.0.0/userManagement`);
 		return data.data;
 	} catch (err) {
 		alert(err);

@@ -8,8 +8,8 @@ class MainView extends View {
 
 	_generateMarkup() {
 		return `
-			<h1 class="border-bottom border-secondary text-primary-emphasis py-2 mb-4">Game Mode</h1>
-			<div class="row">
+			<h1 class="text-center py-2 mb-4">choose Game Mode</h1>
+			<div class="mods row">
 				<div class="col-12 col-sm-6 pb-2 pb-sm-0 pe-sm-0">
 					<a href="/tournament" data-link>
 						<div>
@@ -48,7 +48,6 @@ class MainView extends View {
 			history.pushState(null, null, link.href);
 			handler();
 		});
-		window.addEventListener("popstate", handler);
 	};
 };
 
