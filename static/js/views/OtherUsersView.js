@@ -21,7 +21,7 @@ class OtherUsersView extends NavView {
 							</div>
 						</form>
 					</div>
-					<div class="table-container col-12 col-md-6 border ps-0">
+					<div class="table-container col-12 col-md-6 border ps-0 overflow-y-auto h-">
 						<form method="POST" action="unblock-user">
 							<table class="table table-sm align-middle">
 								<thead class="table-dark">
@@ -92,7 +92,7 @@ class OtherUsersView extends NavView {
 							</div>
 						</form>
 					</div>
-					<div class="table-container col-12 col-md-6 border ps-0">
+					<div class="table-container col-12 col-md-6 border ps-0 overflow-y-auto">
 						<form method="POST" action="unblock-user">
 							<table class="table table-sm align-middle">
 								<thead class="table-dark">

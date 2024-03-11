@@ -67,3 +67,12 @@
 		display: none;
 	}
 }
+
+@media (max-height: 400px) {
+	#header .navbar {
+		height: 95px;
+	}
+	#sidebar {
+		top: 95px;
+	}
+}

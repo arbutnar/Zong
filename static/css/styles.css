@@ -23,9 +23,42 @@ footer {
 	font-size: 0.75rem;
 }
 
+.banners-cont {
+	max-width: 1000px;
+}
+
+.overlay {
+	position: absolute;
+	background-color: rgba(49, 67, 107, 0.674);
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: top 0.20s linear;
+}
+
+.tornament_banner {
+	top: 90%;
+}
+
+.versus_banner, .practice_banner {
+	top: 80%;
+}
+
+.banner:hover .overlay {
+	top: 0;
+	transition: top 0.25s linear;
+}
+
+.mode-description {
+	display: none;
+}
+
+.banner:hover .mode-description {
+	display: block;
+}
+
 .table-container {
     height: 180px;
-    overflow-y: auto;
 }
 
 /* .selected {
