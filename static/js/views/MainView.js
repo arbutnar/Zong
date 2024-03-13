@@ -35,7 +35,7 @@ class MainView extends View {
 							</a>
 						</div>
 						<div class="col-12">
-							<a href="/practice" data-link>
+							<a href="/practice" data-link data-practice>
 								<div class="banner position-relative">
 									<div class="practice_banner overlay img-fluid d-flex flex-column justify-content-center align-items-center text-white">
 										<h3 class="text-uppercase text-center">Practice</h3>

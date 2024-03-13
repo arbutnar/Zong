@@ -5,8 +5,9 @@ import messagesView from './views/MessagesView.js';
 import otherUsersView from './views/OtherUsersView.js';
 import dashboardView from './views/DashboardView.js';
 import securityView from './views/SecurityView.js';
+import gameView from './views/GameView.js';
 import tournamentView from './views/TournamentView.js';
-import practiceView from './views/PracticeView.js';
+// import practiceView from './views/PracticeView.js';
 import versusView from './views/VersusView.js';
 
 const routes = [
@@ -18,7 +19,8 @@ const routes = [
 	{ path: "/security", view: securityView },
 	{ path: "/tournament", view: tournamentView },
 	{ path: "/versus", view: versusView },
-	{ path: "/practice", view: practiceView },
+	// { path: "/practice", view: practiceView },
+	{ path: "/practice", view: gameView },
 ];
 
 const controlMain = async function () {
@@ -30,8 +32,24 @@ const controlMain = async function () {
 	match.view.render(model.state.user);
 };
 
+let lastTime;
+let delta;
+
+const controlGame = function(time) {
+	console.log(time);
+	if (location.pathname !== "/practice")
+		return ;
+	if (lastTime) {
+		delta = time - lastTime;
+		gameView.update(delta);
+	}
+	lastTime = time;
+	requestAnimationFrame(controlGame);
+};
+
 const init = function () {
 	mainView.addHandlerView(controlMain);
+	gameView.addHandlerView(controlGame);
 };
 
 init();
