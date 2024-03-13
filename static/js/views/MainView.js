@@ -30,7 +30,7 @@ class MainView extends View {
 										<h3 class="text-uppercase text-center">1 versus 1</h3>
 										<h4 class="mode-description">Challenge another player</h4>
 									</div>
-									<img src="static/images/1vs1.png" class="img-fluid" alt="versus">
+									<img src="static/images/1v1.png" class="img-fluid" alt="versus">
 								</div>
 							</a>
 						</div>
