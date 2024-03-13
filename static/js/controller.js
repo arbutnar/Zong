@@ -32,20 +32,27 @@ const controlMain = async function () {
 	match.view.render(model.state.user);
 };
 
-let lastTime;
-let delta;
+const controlGame = function() {
 
-const controlGame = function(time) {
-	console.log(time);
-	if (location.pathname !== "/practice")
-		return ;
-	if (lastTime) {
-		delta = time - lastTime;
-		gameView.update(delta);
-	}
-	lastTime = time;
-	requestAnimationFrame(controlGame);
-};
+	const updateGame = function(time) {
+		if (location.pathname !== "/practice")
+			return ;
+		if (lastTime)
+		{
+			console.log(time);
+			delta = time - lastTime;
+			gameView.update(delta);
+		}
+		lastTime = time;
+		requestAnimationFrame(updateGame);
+	};
+
+	let lastTime = 0;
+	let delta;
+
+	gameView.init();
+	requestAnimationFrame(updateGame);
+}
 
 const init = function () {
 	mainView.addHandlerView(controlMain);
