@@ -28,6 +28,7 @@ const controlMain = async function () {
 	if (!match)
 		return ;
 	console.log(location.pathname);
+	// model.loadPage();
 	match.view.render(model.state.user);
 };
 
