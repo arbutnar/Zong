@@ -6,23 +6,7 @@ class GameView extends View {
 		super();
 	}
 
-	update(data) {
-		//data.ball.domElement.style.setProperty("--x", data.ball.x);
-		//data.ball.domElement.style.setProperty("--y", data.ball.y);
-		this._data = data;
-		const newMarkup = this._generateMarkup();
-		const newDom = document.createRange().createContextualFragment(newMarkup);
-		const newElements = Array.from(newDom.querySelectorAll('*'));
-		const currElements = Array.from(this._parentElement.querySelectorAll('*'));
-
-		newElements.forEach((newEl, i ) => {
-			const currEl = currElements[i];
-			if (!newEl.isEqualNode(currEl) && !newEl.firstElementChild)
-			currEl.innerHTML = newEl.innerHTML;
-	});
-}
-
-addHandlerView(handler, paddleHandler) {
+	addHandlerView(gameHandler, paddleHandler) {
 	
 	// document.addEventListener("DOMContentLoaded", e => {
 	// 	window.requestAnimationFrame(handler);
@@ -31,15 +15,15 @@ addHandlerView(handler, paddleHandler) {
 		// 	window.requestAnimationFrame(handler);
 		// });
 		document.body.addEventListener("click", e => {
-			const link = e.target.closest("[data-practice]");
+			const link = e.target.closest("[data-game-link]");
 			if (!link)
-			return;
-		handler();
-	});
-		
-	document.addEventListener("keydown", paddleHandler);
-	document.addEventListener("keyup", paddleHandler);
-}
+				return;
+			e.preventDefault();
+			history.pushState(null, null, link.href);
+			["keydown", "keyup"].forEach(event => document.addEventListener(event, paddleHandler));
+			gameHandler();
+		});
+	}
 
 	_generateMarkup() {
 		return `

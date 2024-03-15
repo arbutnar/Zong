@@ -26,24 +26,32 @@ export const state = {
 			paddle: {
 				domElement: undefined,
 				position: 50,
+				direction: 0,
 			},
 		},
 		player2: {
+			ai: false,
 			score: 0,
 			paddle: {
 				domElement: undefined,
 				position: 50,
+				direction: 0,
 			},
 		}
 	}
 };
 
-export const initGame = function() {
+export const initGame = function(gameMode) {
 	state.game.ball.domElement = document.querySelector('#ball');
 	state.game.player1.paddle.domElement = document.querySelector('#player1-paddle');
 	state.game.player2.paddle.domElement = document.querySelector('#player2-paddle');
 	state.game.player1.score = 0;
 	state.game.player2.score = 0;
+	state.game.player1.direction = 0;
+	state.game.player2.direction = 0;
+	state.game.player2.ai = false;
+	if (gameMode === '/practice')
+		state.game.player2.ai = true;
 }
 
 export const resetGame = function() {
@@ -57,6 +65,8 @@ export const resetGame = function() {
 		heading = Math.random() * (2 * Math.PI);
 		state.game.ball.direction = { x: Math.cos(heading), y: Math.sin(heading) };
 	}
+	state.game.player1.direction = 0;
+	state.game.player2.direction = 0;
 	state.game.player1.paddle.position = 50;
 	state.game.player2.paddle.position = 50;
 }
@@ -83,17 +93,53 @@ export const updateGameBall = function(delta) {
 
 }
 
-export const updateGamePlayer2Paddle = function(delta) {
-	const paddlePosition = state.game.player2.paddle.position
-	if (Math.abs(state.game.ball.y - paddlePosition) < 1)
-		return ;
-	const direction = state.game.ball.y < paddlePosition ? -1 : 1
-	state.game.player2.paddle.position += PADDLE_SPEED * delta * direction;
+export const updateGamePaddles = function(delta) {
+	if (state.game.player2.ai)
+		changePlayer2PaddleDirectionAi();
+	state.game.player1.paddle.position += PADDLE_SPEED * delta * state.game.player1.paddle.direction;
+	state.game.player2.paddle.position += PADDLE_SPEED * delta * state.game.player2.paddle.direction;
 }
 
-export const updateGamePlayer1Paddle = function(delta, direction) {
-	console.log(direction);
-	state.game.player1.paddle.position += PADDLE_SPEED * delta * direction;
+export const changePlayer2PaddleDirectionAi = function() {
+	const paddlePosition = state.game.player2.paddle.position
+	state.game.player2.paddle.direction = Math.abs(state.game.ball.y - paddlePosition) < 1 ? 0 :
+		state.game.ball.y < paddlePosition ? -1 : 1;
+}
+
+export const changePlayerPaddleDirections = function(type, code) {
+	let direction = state.game.player1.paddle.direction;
+	
+	if(code === 'KeyW')
+	{
+		if (type === "keydown")
+			state.game.player1.paddle.direction = -1;
+		else if (type === "keyup" && direction === -1)
+			state.game.player1.paddle.direction = 0
+	}
+	if(code === 'KeyS')
+	{
+		if (type === "keydown")
+			state.game.player1.paddle.direction = 1;
+		else if (type === "keyup" && direction === 1)
+			state.game.player1.paddle.direction = 0
+	}
+	if(state.game.player2.ai)
+		return ;
+	direction = state.game.player2.paddle.direction;
+	if(code === 'ArrowUp')
+	{
+		if (type === "keydown")
+			state.game.player2.paddle.direction = -1;
+		else if (type === "keyup" && direction === -1)
+			state.game.player2.paddle.direction = 0
+	}
+	if(code === 'ArrowDown')
+	{
+		if (type === "keydown")
+			state.game.player2.paddle.direction = 1;
+		else if (type === "keyup" && direction === 1)
+			state.game.player2.paddle.direction = 0
+	}
 }
 
 const userObj = function () {
