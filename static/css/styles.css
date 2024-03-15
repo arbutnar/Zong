@@ -1,20 +1,18 @@
 #header .navbar {
-	padding: 1rem 3rem;
-	height: 113px;
+	height: 119px;
 }
 
 #sidebar {
-	top: 113px;
+	top: 119px;
 	width: 300px;
 }
 
 main {
-	padding-top: 113px;
+	padding-top: 119px;
 	min-height: calc(100vh - 40px);
 }
 
 footer {
-	height: 34px;
 	font-size: 0.75rem;
 }
 
@@ -55,9 +53,3 @@ footer {
 .table-container {
     height: 180px;
 }
-
-/* .selected {
-	color: #0d6efd;
-	background-color: #f1f1f1;
-	border-left: 5px solid #0d6efd;
-} */
