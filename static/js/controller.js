@@ -20,43 +20,60 @@ const routes = [
 	{ path: "/tournament", view: tournamentView },
 	{ path: "/versus", view: versusView },
 	// { path: "/practice", view: practiceView },
-	{ path: "/practice", view: gameView },
 ];
 
 const controlMain = async function () {
 	
 	const match = routes.find(route => route.path === location.pathname);
+	if (!match)
+		return ;
 	console.log(location.pathname);
-	// const user = await model.loadUser();
-	model.loadPage();
 	match.view.render(model.state.user);
 };
 
+let direction = 0;
+
+const paddleHandler = function(e) {
+	if (e.type === "keydown") {
+		if (e.code === 'KeyW')
+			direction = -1;
+		else if (e.code === 'KeyS')
+			direction = 1;
+	}
+	else if (e.type === "keyup" && (e.code === 'KeyW'|| e.code === 'KeyS'))
+		direction = 0;
+}
+
 const controlGame = function() {
+
+	let lastTime = 0;
+	let delta;
 
 	const updateGame = function(time) {
 		if (location.pathname !== "/practice")
 			return ;
 		if (lastTime)
 		{
-			console.log(time);
 			delta = time - lastTime;
-			gameView.update(delta);
+			model.updateGameBall(delta);
+			model.updateGamePlayer1Paddle(delta, direction);
+			model.updateGamePlayer2Paddle(delta);
 		}
+		gameView.update(model.state.game);
 		lastTime = time;
 		requestAnimationFrame(updateGame);
 	};
 
-	let lastTime = 0;
-	let delta;
-
-	gameView.init();
+	model.resetGame();
+	gameView.render(model.state.game);
+	model.initGame();
 	requestAnimationFrame(updateGame);
 }
 
+
 const init = function () {
 	mainView.addHandlerView(controlMain);
-	gameView.addHandlerView(controlGame);
+	gameView.addHandlerView(controlGame, paddleHandler);
 };
 
 init();

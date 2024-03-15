@@ -1,48 +1,4 @@
 import View from "./View.js";
-import { INITIAL_BALL_VELOCITY } from "../config.js";
-
-class Ball {
-	constructor(DomElement) {
-		this.DomElement = DomElement;
-		this.reset();
-	}
-
-	get x() {
-		return parseFloat(getComputedStyle(this.DomElement).getPropertyValue("--x"));
-	}
-
-	set x(value) {
-		this.DomElement.style.setProperty("--x", value);
-	}
-
-	get y() {
-		return parseFloat(getComputedStyle(this.DomElement).getPropertyValue("--y"));
-	}
-
-	set y(value) {
-		this.DomElement.style.setProperty("--y", value);
-	}
-
-	reset() {
-		this.x = 50;
-		this.y = 50;
-		const heading = Math.random() * (2 * Math.PI);
-		this.direction = { x: Math.cos(heading), y: Math.sin(heading) };
-		this.velocity = INITIAL_BALL_VELOCITY;
-	}
-
-	update(delta) {
-		this.x += this.direction.x * this.velocity * delta;
-		this.y += this.direction.y * this.velocity * delta;
-		const rect = this.DomElement.getBoundingClientRect();
-
-		if (rect.bottom >= document.body.innerHeight || rect.top <= 0)
-			this.direction.y *= -1;
-		if (rect.right >= document.body.innerWidth || rect.left <= 0)
-			this.direction.x *= -1;
-	}
-
-}
 
 class GameView extends View {
 
@@ -50,30 +6,42 @@ class GameView extends View {
 		super();
 	}
 
-	init() {
-		this.ball = new Ball(document.querySelector("#ball"));
-	}
+	update(data) {
+		//data.ball.domElement.style.setProperty("--x", data.ball.x);
+		//data.ball.domElement.style.setProperty("--y", data.ball.y);
+		this._data = data;
+		const newMarkup = this._generateMarkup();
+		const newDom = document.createRange().createContextualFragment(newMarkup);
+		const newElements = Array.from(newDom.querySelectorAll('*'));
+		const currElements = Array.from(this._parentElement.querySelectorAll('*'));
 
-	update(delta) {
-		this.ball.update(delta);
-	}
+		newElements.forEach((newEl, i ) => {
+			const currEl = currElements[i];
+			if (!newEl.isEqualNode(currEl) && !newEl.firstElementChild)
+			currEl.innerHTML = newEl.innerHTML;
+	});
+}
 
-	addHandlerView(handler) {
-		// document.addEventListener("DOMContentLoaded", e => {
-		// 	window.requestAnimationFrame(handler);
-		// });
-		// window.addEventListener("popstate", e => {
+addHandlerView(handler, paddleHandler) {
+	
+	// document.addEventListener("DOMContentLoaded", e => {
+	// 	window.requestAnimationFrame(handler);
+	// });
+	// window.addEventListener("popstate", e => {
 		// 	window.requestAnimationFrame(handler);
 		// });
 		document.body.addEventListener("click", e => {
 			const link = e.target.closest("[data-practice]");
 			if (!link)
-				return;
-			handler();
-		});
-	}
+			return;
+		handler();
+	});
+		
+	document.addEventListener("keydown", paddleHandler);
+	document.addEventListener("keyup", paddleHandler);
+}
 
-	_generateMarkup(data) {
+	_generateMarkup() {
 		return `
 			<style>
 				*, *::after, *::before {
@@ -87,15 +55,13 @@ class GameView extends View {
 					--background-color: hsl(var(--hue), var(--saturation), 20%);
 				}
 
-				body {
+				main {
 					margin: 0;
 					background-color: var(--background-color);
 					overflow: hidden;
 				}
 
 				.paddle {
-					--position: 50;
-				
 					position: absolute;
 					background-color: var(--foreground-color);
 					top: calc(var(--position) * 1vh);
@@ -103,18 +69,20 @@ class GameView extends View {
 					width: 1vh;
 					height: 10vh;
 				}
-
+				
 				.paddle.left {
+					--position: ${this._data.player1.paddle.position};
 					left: 1vw;
 				}
-
+				
 				.paddle.right {
+					--position: ${this._data.player2.paddle.position};
 					right: 1vw;
 				}
 
 				.ball {
-					--x: 50;
-					--y: 50;
+					--x: ${this._data.ball.x};
+					--y: ${this._data.ball.y};
 				
 					position: absolute;
 					background-color: var(--foreground-color);
@@ -149,12 +117,12 @@ class GameView extends View {
 			</style>
 			<div class="container">
 				<div class="score">
-					<div id="player-score">0</div>
-					<div id="computer-score">0</div>
+					<div id="player1-score">${this._data.player1.score}</div>
+					<div id="player2-score">${this._data.player2.score}</div>
 				</div>
 				<div class="ball" id="ball"></div>
-				<div class="paddle left" id="player-paddle"></div>
-				<div class="paddle right" id="computer-paddle"></div>
+				<div class="paddle left" id="player1-paddle"></div>
+				<div class="paddle right" id="player2-paddle"></div>
 			</div>
 		`;
 	}
