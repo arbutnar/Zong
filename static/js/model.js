@@ -5,7 +5,7 @@
 // Should store any data fetched from API, data that the user inputs or the page the user is currently viewing --> "single source of truth".
 // UI should be kept in sync with the state.
 
-import { INITIAL_BALL_VELOCITY, PADDLE_SPEED } from "./config.js";
+import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY, PADDLE_SPEED } from "./config.js";
 import { isCollision } from "./helpers.js";
 
 export const state = {
@@ -47,8 +47,8 @@ export const initGame = function(gameMode) {
 	state.game.player2.paddle.domElement = document.querySelector('#player2-paddle');
 	state.game.player1.score = 0;
 	state.game.player2.score = 0;
-	state.game.player1.direction = 0;
-	state.game.player2.direction = 0;
+	state.game.player1.paddle.direction = 0;
+	state.game.player2.paddle.direction = 0;
 	state.game.player2.ai = false;
 	if (gameMode === '/practice')
 		state.game.player2.ai = true;
@@ -78,7 +78,10 @@ export const updateGameBall = function(delta) {
 	if (ballRect.bottom >= document.querySelector("main").offsetHeight || ballRect.top <= 0)
 		state.game.ball.direction.y *= -1;
 	else if (paddleRects.some(paddleRect => isCollision(paddleRect, ballRect)))
+	{
 		state.game.ball.direction.x *= -1;
+		state.game.ball.velocity += INCREMENT_BALL_VELOCITY;
+	}
 	else if (ballRect.right >= window.innerWidth || ballRect.left <= 0)
 	{
 		if (ballRect.right >= window.innerWidth)
