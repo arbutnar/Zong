@@ -18,8 +18,6 @@ const routes = [
 	{ path: "/dashboard", view: dashboardView },
 	{ path: "/security", view: securityView },
 	{ path: "/tournament", view: tournamentView },
-	{ path: "/versus", view: versusView },
-	// { path: "/practice", view: practiceView },
 ];
 
 const controlMain = async function () {
@@ -28,20 +26,13 @@ const controlMain = async function () {
 	if (!match)
 		return ;
 	console.log(location.pathname);
+	// model.loadPage();
 	match.view.render(model.state.user);
 };
 
-let direction = 0;
 
-const paddleHandler = function(e) {
-	if (e.type === "keydown") {
-		if (e.code === 'KeyW')
-			direction = -1;
-		else if (e.code === 'KeyS')
-			direction = 1;
-	}
-	else if (e.type === "keyup" && (e.code === 'KeyW'|| e.code === 'KeyS'))
-		direction = 0;
+const controlPaddle = function(e) {
+	model.changePlayerPaddleDirections(e.type, e.code);
 }
 
 const controlGame = function() {
@@ -50,14 +41,13 @@ const controlGame = function() {
 	let delta;
 
 	const updateGame = function(time) {
-		if (location.pathname !== "/practice")
+		if (location.pathname !== "/practice" && location.pathname !== "/versus")
 			return ;
 		if (lastTime)
 		{
 			delta = time - lastTime;
 			model.updateGameBall(delta);
-			model.updateGamePlayer1Paddle(delta, direction);
-			model.updateGamePlayer2Paddle(delta);
+			model.updateGamePaddles(delta);
 		}
 		gameView.update(model.state.game);
 		lastTime = time;
@@ -66,14 +56,14 @@ const controlGame = function() {
 
 	model.resetGame();
 	gameView.render(model.state.game);
-	model.initGame();
+	model.initGame(location.pathname);
 	requestAnimationFrame(updateGame);
 }
 
 
 const init = function () {
 	mainView.addHandlerView(controlMain);
-	gameView.addHandlerView(controlGame, paddleHandler);
+	gameView.addHandlerView(controlGame, controlPaddle);
 };
 
 init();
