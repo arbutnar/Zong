@@ -24,7 +24,7 @@ class MainView extends View {
 					</div>
 					<div class="col-12 col-sm-6 p-0">
 						<div class="col-12 pb-2">
-							<a href="/versus" data-game-link>
+							<a href="/versus" data-link>
 								<div class="banner position-relative">
 									<div class="versus_banner overlay img-fluid w-100 d-flex flex-column justify-content-center align-items-center text-white">
 										<h3 class="text-uppercase text-center">1 versus 1</h3>
@@ -35,7 +35,7 @@ class MainView extends View {
 							</a>
 						</div>
 						<div class="col-12">
-							<a href="/practice" data-game-link>
+							<a href="/practice" data-link>
 								<div class="banner position-relative">
 									<div class="practice_banner overlay img-fluid d-flex flex-column justify-content-center align-items-center text-white">
 										<h3 class="text-uppercase text-center">Practice</h3>
