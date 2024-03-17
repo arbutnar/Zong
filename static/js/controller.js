@@ -46,6 +46,7 @@ const controlGame = function() {
 		if (lastTime)
 		{
 			delta = time - lastTime;
+			model.state.board.context.clearRect(0, 0, model.state.board.width, model.state.board.height);
 			model.updateGameBall(delta);
 			model.updateGamePaddles(delta);
 		}
@@ -54,7 +55,7 @@ const controlGame = function() {
 		requestAnimationFrame(updateGame);
 	};
 
-	model.resetGame();
+	// model.resetGame();
 	gameView.render(model.state.game);
 	model.initGame(location.pathname);
 	requestAnimationFrame(updateGame);
