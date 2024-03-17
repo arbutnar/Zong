@@ -5,7 +5,8 @@
 // Should store any data fetched from API, data that the user inputs or the page the user is currently viewing --> "single source of truth".
 // UI should be kept in sync with the state.
 
-import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY, PADDLE_SPEED } from "./config.js";
+import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY, BALL_X, BALL_Y } from "./config.js";
+import { PADDLE_SPEED, PADDLE_X, PADDLE_Y, PADDLE_WIDTH, PADDLE_HEIGHT } from "./config.js"
 // import { isCollision } from "./helpers.js";
 
 export const state = {
@@ -28,10 +29,10 @@ export const state = {
 		player1: {
 			score: 0,
 			paddle: {
-				x: 10,
-				y: 0,
-				width: 10,
-				height: 50,
+				x: PADDLE_X,
+				y: PADDLE_Y,
+				width: PADDLE_WIDTH,
+				height: PADDLE_HEIGHT,
 				direction: 0,
 			},
 		},
@@ -39,10 +40,10 @@ export const state = {
 			ai: false,
 			score: 0,
 			paddle: {
-				x: 10,
-				y: 0,
-				width: 10,
-				height: 50,
+				x: PADDLE_X,
+				y: PADDLE_Y,
+				width: PADDLE_WIDTH,
+				height: PADDLE_HEIGHT,
 				direction: 0,
 			},
 		}
@@ -52,23 +53,14 @@ export const state = {
 export const initGame = function(gameMode) {
 	state.board.domElement = document.querySelector('#board');
 	state.board.context = state.board.domElement.getContext('2d');
-	const boardWidth = state.board.width = state.board.domElement.getBoundingClientRect().width;
-	const boardHeight = state.board.height = state.board.domElement.getBoundingClientRect().height;
-
-	const ballX = state.board.ball.x = boardWidth / 2;
-	const ballY = state.board.ball.y = boardHeight / 2;
-	const paddle1Y = state.board.player1.paddle.y = state.board.height / 2 - state.board.player1.paddle.height / 2;
-	const paddle1X = state.board.player1.paddle.x;
-	const paddle2Y = state.board.player2.paddle.y = state.board.height / 2 - state.board.player2.paddle.height / 2;
-	const paddle2X = state.board.player2.paddle.x = state.board.width - state.board.player2.paddle.width - state.board.player2.paddle.x;
-
-	state.board.context.fillStyle = "skyblue";
-	state.board.context.beginPath();
-	state.board.context.arc(ballX, ballY, state.board.ball.size / 2, 0, Math.PI * 2);
-	state.board.context.fill();
-	state.board.context.fillRect(paddle1X, paddle1Y, state.board.player1.paddle.width, state.board.player1.paddle.height);
-	state.board.context.fillRect(paddle2X, paddle2Y, state.board.player2.paddle.width, state.board.player2.paddle.height);
-	
+	state.board.width = state.board.domElement.getBoundingClientRect().width;
+	state.board.height = state.board.domElement.getBoundingClientRect().height;
+	resetGame();
+	state.board.player1.paddle.y = state.board.height / 2 - state.board.player1.paddle.height / 2;
+	state.board.player2.paddle.x = state.board.width - state.board.player2.paddle.width - state.board.player2.paddle.x;
+	state.board.player2.paddle.y = state.board.height / 2 - state.board.player2.paddle.height / 2;
+	state.board.ball.x = state.board.width / 2;
+	state.board.ball.y = state.board.height / 2;
 	let heading;
 	while (Math.abs(state.board.ball.direction.x) <= 0.2 || Math.abs(state.board.ball.direction.x) >= 0.9)
 	{
@@ -76,50 +68,45 @@ export const initGame = function(gameMode) {
 		state.board.ball.direction = { x: Math.cos(heading), y: Math.sin(heading) };
 	}
 
-	state.board.player1.score = 0;
-	state.board.player2.score = 0;
-	state.board.player1.direction = 0;
-	state.board.player2.direction = 0;
-	state.board.player2.ai = false;
+	state.board.context.fillStyle = "skyblue";
+	state.board.context.fillRect(state.board.player1.paddle.x, state.board.player1.paddle.y, state.board.player1.paddle.width, state.board.player1.paddle.height);
+	state.board.context.fillRect(state.board.player2.paddle.x, state.board.player2.paddle.y, state.board.player2.paddle.width, state.board.player2.paddle.height);
+	state.board.context.beginPath();
+	state.board.context.arc(state.board.ball.x, state.board.ball.y, state.board.ball.size / 2, 0, Math.PI * 2);
+	state.board.context.fill();
 	if (gameMode === '/practice')
 		state.board.player2.ai = true;
 }
 
 export const resetGame = function() {
-	state.game.ball.x = 50;
-	state.game.ball.y = 50;
-	state.game.ball.velocity = INITIAL_BALL_VELOCITY;
-	state.game.ball.direction.x = 0;
-	let heading;
-	while (Math.abs(state.game.ball.direction.x) <= 0.2 || Math.abs(state.game.ball.direction.x) >= 0.9)
-	{
-		heading = Math.random() * (2 * Math.PI);
-		state.game.ball.direction = { x: Math.cos(heading), y: Math.sin(heading) };
-	}
+	state.board.ball.x = BALL_X;
+	state.board.ball.y = BALL_Y;
+	state.board.ball.velocity = INITIAL_BALL_VELOCITY;
+	state.board.ball.direction.x = state.board.ball.direction.y = 0;
+	state.board.player1.paddle.x = state.board.player2.paddle.x = PADDLE_X;
+	state.board.player1.paddle.y = state.board.player2.paddle.y = PADDLE_Y;
+	state.board.player1.score = 0;
+	state.board.player2.score = 0;
 	state.board.player1.direction = 0;
-	state.game.player2.direction = 0;
-	state.game.player1.paddle.position = 50;
-	state.game.player2.paddle.position = 50;
+	state.board.player2.direction = 0;
+	state.board.player2.ai = false;
 }
 
 export const updateGameBall = function(delta) {
 	if (state.board.ball.y <= 0 || (state.board.ball.y + state.board.ball.size >= state.board.height))
 		state.board.ball.direction.y *= -1;
-	else if (isCollision(state.board.ball, state.board.player1.paddle))
-	{
-		console.log("right");
-
-		// left side of the ball touches right side of paddle1
-		if (state.board.ball.x <= state.board.player1.paddle.x + state.board.player1.paddle.width)
-			state.board.ball.direction.x *= -1;
-	}
-	else if (isCollision(state.board.ball, state.board.player2.paddle))
-	{
-		console.log("left");
-		// right side of the ball touches left side of paddle2
-		if (state.board.ball.x + state.board.ball.size >= state.board.player2.paddle.x)
-			state.board.ball.direction.x *= -1;
-	}
+	// else if (isCollision(state.board.ball, state.board.player1.paddle))
+	// {
+	// 	// left side of the ball touches right side of paddle1
+	// 	if (state.board.ball.x <= state.board.player1.paddle.x + state.board.player1.paddle.width)
+	// 		state.board.ball.direction.x *= -1;
+	// }
+	// else if (isCollision(state.board.ball, state.board.player2.paddle))
+	// {
+	// 	// right side of the ball touches left side of paddle2
+	// 	if (state.board.ball.x + state.board.ball.size >= state.board.player2.paddle.x)
+	// 		state.board.ball.direction.x *= -1;
+	// }
 	state.board.ball.x += state.board.ball.direction.x * state.board.ball.velocity * delta;
 	state.board.ball.y += state.board.ball.direction.y * state.board.ball.velocity * delta;
 	state.board.context.beginPath();

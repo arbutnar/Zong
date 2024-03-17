@@ -21,7 +21,6 @@ const routes = [
 ];
 
 const controlMain = async function () {
-	
 	const match = routes.find(route => route.path === location.pathname);
 	if (location.pathname === "/practice" || location.pathname === "/versus")
 		controlGame();
@@ -30,7 +29,6 @@ const controlMain = async function () {
 	match.view.render(model.state.user);
 };
 
-
 const controlPaddle = function(e) {
 	if (location.pathname !== "/practice" && location.pathname !== "/versus")
 		return ;
@@ -38,13 +36,15 @@ const controlPaddle = function(e) {
 }
 
 const controlGame = function() {
-
 	let lastTime = 0;
 	let delta;
 
 	const updateGame = function(time) {
 		if (location.pathname !== "/practice" && location.pathname !== "/versus")
+		{
+			model.resetGame(location.pathname);
 			return ;
+		}
 		if (lastTime)
 		{
 			delta = time - lastTime;
@@ -52,12 +52,10 @@ const controlGame = function() {
 			model.updateGameBall(delta);
 			model.updateGamePaddles(delta);
 		}
-		gameView.update(model.state.game);
+		// gameView.update(model.state.game);
 		lastTime = time;
 		requestAnimationFrame(updateGame);
 	};
-
-	// model.resetGame();
 	gameView.render(model.state.game);
 	model.initGame(location.pathname);
 	requestAnimationFrame(updateGame);

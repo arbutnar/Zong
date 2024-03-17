@@ -7,7 +7,6 @@ class GameView extends View {
 	}
 
 	addHandlerView(paddleHandler) {
-	
 		["keydown", "keyup"].forEach(event => document.addEventListener(event, paddleHandler));
 	}
 
