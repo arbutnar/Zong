@@ -12,9 +12,15 @@
 	#header #username {
 		font-size: 20px;
 	}
+	.playground {
+		width: 100vw;
+	}
+	.ball {
+		left: calc(var(--x) * 1vw);
+	}
 }
 
-@media (max-width: 575px) {
+@media (max-width: 576px) {
 	#header .navbar {
 		height: 95px;
 	}
@@ -38,6 +44,9 @@
 	}
 	.footer {
 		text-align: center;
+	}
+	#board {
+		width: 100vw;
 	}
 }
 
