@@ -5,7 +5,7 @@
 // Should store any data fetched from API, data that the user inputs or the page the user is currently viewing --> "single source of truth".
 // UI should be kept in sync with the state.
 
-import { INITIAL_BALL_VELOCITY, PADDLE_SPEED } from "./config.js";
+import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY, PADDLE_SPEED } from "./config.js";
 // import { isCollision } from "./helpers.js";
 
 export const state = {

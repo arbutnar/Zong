@@ -6,23 +6,9 @@ class GameView extends View {
 		super();
 	}
 
-	addHandlerView(gameHandler, paddleHandler) {
+	addHandlerView(paddleHandler) {
 	
-	// document.addEventListener("DOMContentLoaded", e => {
-	// 	window.requestAnimationFrame(handler);
-	// });
-	// window.addEventListener("popstate", e => {
-		// 	window.requestAnimationFrame(handler);
-		// });
-		document.body.addEventListener("click", e => {
-			const link = e.target.closest("[data-game-link]");
-			if (!link)
-				return;
-			e.preventDefault();
-			history.pushState(null, null, link.href);
-			["keydown", "keyup"].forEach(event => document.addEventListener(event, paddleHandler));
-			gameHandler();
-		});
+		["keydown", "keyup"].forEach(event => document.addEventListener(event, paddleHandler));
 	}
 
 	_generateMarkup() {

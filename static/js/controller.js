@@ -23,15 +23,17 @@ const routes = [
 const controlMain = async function () {
 	
 	const match = routes.find(route => route.path === location.pathname);
+	if (location.pathname === "/practice" || location.pathname === "/versus")
+		controlGame();
 	if (!match)
 		return ;
-	console.log(location.pathname);
-	// model.loadPage();
 	match.view.render(model.state.user);
 };
 
 
 const controlPaddle = function(e) {
+	if (location.pathname !== "/practice" && location.pathname !== "/versus")
+		return ;
 	model.changePlayerPaddleDirections(e.type, e.code);
 }
 
@@ -64,7 +66,7 @@ const controlGame = function() {
 
 const init = function () {
 	mainView.addHandlerView(controlMain);
-	gameView.addHandlerView(controlGame, controlPaddle);
+	gameView.addHandlerView(controlPaddle);
 };
 
 init();
