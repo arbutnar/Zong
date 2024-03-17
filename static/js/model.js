@@ -5,7 +5,7 @@
 // Should store any data fetched from API, data that the user inputs or the page the user is currently viewing --> "single source of truth".
 // UI should be kept in sync with the state.
 
-import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY, BALL_X, BALL_Y } from "./config.js";
+import { INITIAL_BALL_VELOCITY, INCREMENT_BALL_VELOCITY } from "./config.js";
 import { PADDLE_SPEED, PADDLE_X, PADDLE_Y, PADDLE_WIDTH, PADDLE_HEIGHT } from "./config.js"
 // import { isCollision } from "./helpers.js";
 
@@ -56,40 +56,34 @@ export const initGame = function(gameMode) {
 	state.board.width = state.board.domElement.getBoundingClientRect().width;
 	state.board.height = state.board.domElement.getBoundingClientRect().height;
 	resetGame();
-	state.board.player1.paddle.y = state.board.height / 2 - state.board.player1.paddle.height / 2;
-	state.board.player2.paddle.x = state.board.width - state.board.player2.paddle.width - state.board.player2.paddle.x;
-	state.board.player2.paddle.y = state.board.height / 2 - state.board.player2.paddle.height / 2;
-	state.board.ball.x = state.board.width / 2;
-	state.board.ball.y = state.board.height / 2;
-	let heading;
-	while (Math.abs(state.board.ball.direction.x) <= 0.2 || Math.abs(state.board.ball.direction.x) >= 0.9)
-	{
-		heading = Math.random() * (2 * Math.PI);
-		state.board.ball.direction = { x: Math.cos(heading), y: Math.sin(heading) };
-	}
-
 	state.board.context.fillStyle = "skyblue";
 	state.board.context.fillRect(state.board.player1.paddle.x, state.board.player1.paddle.y, state.board.player1.paddle.width, state.board.player1.paddle.height);
 	state.board.context.fillRect(state.board.player2.paddle.x, state.board.player2.paddle.y, state.board.player2.paddle.width, state.board.player2.paddle.height);
 	state.board.context.beginPath();
 	state.board.context.arc(state.board.ball.x, state.board.ball.y, state.board.ball.size / 2, 0, Math.PI * 2);
 	state.board.context.fill();
+	state.board.player2.ai = false;
 	if (gameMode === '/practice')
 		state.board.player2.ai = true;
 }
 
 export const resetGame = function() {
-	state.board.ball.x = BALL_X;
-	state.board.ball.y = BALL_Y;
+	state.board.player1.paddle.y = state.board.height / 2 - state.board.player1.paddle.height / 2;
+	state.board.player2.paddle.x = state.board.width - state.board.player2.paddle.width - PADDLE_X;
+	state.board.player2.paddle.y = state.board.height / 2 - state.board.player2.paddle.height / 2;
+	state.board.ball.x = state.board.width / 2;
+	state.board.ball.y = state.board.height / 2;
 	state.board.ball.velocity = INITIAL_BALL_VELOCITY;
-	state.board.ball.direction.x = state.board.ball.direction.y = 0;
-	state.board.player1.paddle.x = state.board.player2.paddle.x = PADDLE_X;
-	state.board.player1.paddle.y = state.board.player2.paddle.y = PADDLE_Y;
+	let heading;
+	while (Math.abs(state.board.ball.direction.x) <= 0.2 || Math.abs(state.board.ball.direction.x) >= 0.9)
+	{
+		heading = Math.random() * (2 * Math.PI);
+		state.board.ball.direction = { x: Math.cos(heading), y: Math.sin(heading) };
+	}
 	state.board.player1.score = 0;
 	state.board.player2.score = 0;
 	state.board.player1.direction = 0;
 	state.board.player2.direction = 0;
-	state.board.player2.ai = false;
 }
 
 export const updateGameBall = function(delta) {
