@@ -10,29 +10,44 @@
 	<script defer src="static/js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script defer type="module" src="static/js/controller.js"></script>
 </head>
-<body class="overflow-auto pe-0">
-	<header id="header" class="navbar-light fixed-top pe-0 bg-white">
-		<nav class="navbar align-items-center border-bottom	py-3 px-4">
-			<a href="/" id="title" class="display-2 link-body-emphasis text-decoration-none" data-link>ZONG</a>
-			<ul class="nav align-items-center justify-content-md-end ms-md-0 ms-auto">
+<body>
+	<header id="header" class="navbar fixed-top bg-white border-bottom py-3 px-4">
+		<a href="/" id="title" class="nav-item display-2 link-body-emphasis text-decoration-none" data-link>ZONG</a>
+		<div class="nav-item navbar">
+			<ul class="nav align-items-center justify-content-lg-end me-5">
 				<li class="nav-item">
 					<div class="d-flex">
-						jdhfdshjfhskdhfkjhdsk
+						<form method="POST" action="" class="form-inline d-none d-lg-inline-flex">
+							<div class="form-group me-2">
+								<label class="visually-hidden">Username</label>
+								<div class="input-group me-sm-2 input-group-sm">
+									<input type="text" name="username" placeholder="Username" aria-label="Username" tabindex="1" title="Insert your Username" required class="form-control username-input">
+								</div>
+							</div>
+							<div class="form-group me-2">
+								<label class="visually-hidden">Password</label>
+								<div class="input-group me-sm-2 input-group-sm">
+									<input type="password" name="userPassword" placeholder="Password" aria-label="Password" tabindex="2" title="Insert your Password" required class="form-control password-input">
+								</div>
+							</div>
+							<input type="submit" value="Log In" title="Log In" tabindex="3" class="btn btn-outline-primary btn-sm">
+						</form>
+						<a href="#sign-up" role="button" class="btn btn-primary sign-up-link btn-sm d-none d-lg-inline-flex ms-2">Sign up with Auth.42</a>
 					</div>
 				</li>
 			</ul>
-			<div id="user" class="fs-4 m-0">
+			<!-- <div id="user" class="fs-4 m-0">
 				<a href="#sidebar" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" class="profilePicture d-flex align-items-baseline text-nowrap link-body-emphasis text-decoration-none dropdown-toggle">
 					<span id="username" class="me-1">username</span>
 					<img src="static/images/profile_image.png" alt="mdo" width="64" height="64" id="profile_image" class="img-fluid rounded-circle">
 				</a>
-			</div>
-			<!-- <a href="#sidebar" data-bs-toggle="offcanvas"  data-bs-target="#sidebar" aria-controls="sidebar" class="link-body-emphasis text-decoration-none dropdown-toggle">
-				<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-list " viewBox="0 0 16 16">
+			</div> -->
+			<a href="#sidebar" data-bs-toggle="offcanvas"  data-bs-target="#sidebar" aria-controls="sidebar" class="link-body-emphasis text-decoration-none dropdown-toggle">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list " viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 				</svg>
-			</a> -->
-		</nav>
+			</a>
+		</div>
 		<div class="offcanvas offcanvas-end fs-3" id="sidebar" aria-labelledby="sidebarLabel" data-bs-scroll="true" data-bs-backdrop="false" data-bs-auto-close="outside">
 			<div class="offcanvas-header pb-1">
 				<h5 class="offcanvas-title" id="sidebar"></h5>
@@ -155,7 +170,7 @@
 	<main class="container">
 	</main>
 	<footer id="footer">
-		<div class="container-fluid border-top pt-1">
+		<div class="container-fluid border-top pt-1 overflow-hidden">
 			<div class="row align-items-center">
 				<div class="col col-md-6">
 					<p id="copyright" class="text-muted text-center text-md-start"><small>© Copyright 2024&nbsp;. All rights reserved.</small></p>
