@@ -1,19 +1,10 @@
-#header .navbar {
-	height: 119px;
-}
-
-#sidebar {
-	top: 119px;
-	width: 300px;
+#header {
+	height: 115px;
 }
 
 main {
-	padding-top: 119px;
-	min-height: calc(100vh - 40px);
-}
-
-footer {
-	font-size: 0.75rem;
+	padding-top: 115px;
+	height: calc(100vh - 45px);
 }
 
 .banners-cont {
@@ -29,15 +20,15 @@ footer {
 	transition: top 0.20s linear;
 }
 
-.tornament_banner {
+.tornament_overlay {
 	top: 90%;
 }
 
-.versus_banner, .practice_banner {
+.versus_overlay, .practice_overlay {
 	top: 80%;
 }
 
-.banner:hover .overlay {
+.unlocked:hover .overlay {
 	top: 0;
 	transition: top 0.25s linear;
 }
@@ -46,10 +37,15 @@ footer {
 	display: none;
 }
 
-.banner:hover .mode-description {
+.unlocked:hover .mode-description {
 	display: block;
 }
 
 .table-container {
     height: 180px;
+}
+
+#sidebar {
+	top: 115px;
+	width: 300px;
 }

@@ -12,12 +12,6 @@
 	#header #username {
 		font-size: 20px;
 	}
-	.playground {
-		width: 100vw;
-	}
-	.ball {
-		left: calc(var(--x) * 1vw);
-	}
 }
 
 @media (max-width: 576px) {
@@ -40,13 +34,6 @@
 	}
 	main {
 		padding-top: 95px;
-		min-height: calc(100vh - 53px);
-	}
-	.footer {
-		text-align: center;
-	}
-	#board {
-		width: 100vw;
 	}
 }
 
@@ -66,9 +53,6 @@
 	}
 	#header #user {
 		align-self: end;
-	}
-	footer .nav {
-		display: none;
 	}
 }
 
