@@ -1,19 +1,19 @@
 export default class {
 	
-	_parentElement = document.querySelector('main');
+	_parentElement = document.querySelector('#main');
 	_data = undefined;
 
 	constructor() {
 
 	}
 
-	_generateMarkup(data) {
+	_generateMarkup() {
 		return ``;
 	}
 
 	render(data) {
 		this._data = data;
-		const markup = this._generateMarkup(data);
+		const markup = this._generateMarkup();
 		this._parentElement.innerHTML = '';
 		this._parentElement.insertAdjacentHTML('afterbegin', markup);
 	}
