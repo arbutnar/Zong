@@ -1,10 +1,19 @@
-#header {
-	height: 115px;
+#header, #header-navbar {
+	height: 113px;
 }
 
-main {
-	padding-top: 115px;
-	height: calc(100vh - 45px);
+#main {
+	height: calc(100vh - 113px - 45px);
+}
+
+#offcanvas-nav {
+	top: 113px;
+	width: 300px;
+	transition: all 0.2s ease-in-out;
+}
+
+.offcanvas-backdrop {
+	top: 113px;
 }
 
 .banners-cont {
@@ -14,17 +23,18 @@ main {
 .overlay {
 	position: absolute;
 	background-color: rgba(49, 67, 107, 0.674);
+	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	transition: top 0.20s linear;
 }
 
-.tornament_overlay {
+.unlocked .tournament-overlay {
 	top: 90%;
 }
 
-.versus_overlay, .practice_overlay {
+.unlocked .versus-overlay, .practice-overlay {
 	top: 80%;
 }
 
@@ -33,19 +43,14 @@ main {
 	transition: top 0.25s linear;
 }
 
-.mode-description {
+.unlocked .svg-locket {
 	display: none;
 }
 
 .unlocked:hover .mode-description {
-	display: block;
+	display: block !important;
 }
 
 .table-container {
-    height: 180px;
-}
-
-#sidebar {
-	top: 115px;
-	width: 300px;
+	height: 180px;
 }

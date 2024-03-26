@@ -11,166 +11,125 @@
 	<script defer type="module" src="static/js/controller.js"></script>
 </head>
 <body>
-	<header id="header" class="navbar fixed-top bg-white border-bottom py-3 px-4">
-		<a href="/" id="title" class="nav-item display-2 link-body-emphasis text-decoration-none" data-link>ZONG</a>
-		<div class="nav-item navbar">
-			<ul class="nav align-items-center justify-content-lg-end me-5">
-				<li class="nav-item">
-					<div class="d-flex">
-						<form method="POST" action="" class="form-inline d-none d-lg-inline-flex">
-							<div class="form-group me-2">
+	<header id="header">
+		<nav id="header-navbar" class="navbar py-3 px-4 fixed-top bg-white border-bottom">
+			<a href="/" id="site-title" class="nav-item display-2 link-body-emphasis text-decoration-none" data-link>ZONG</a>
+			<div class="nav-item navbar">
+				<ul id="auths-header" class="nav align-items-center justify-content-lg-end me-5">
+					<li class="nav-item d-flex">
+						<form method="POST" action="" class="auth-form form-inline d-none d-lg-inline-flex align-items-center">
+							<section class="form-group me-2">
 								<label class="visually-hidden">Username</label>
 								<div class="input-group me-sm-2 input-group-sm">
-									<input type="text" name="username" placeholder="Username" aria-label="Username" tabindex="1" title="Insert your Username" required class="form-control username-input">
+									<input type="text" name="username" placeholder="Username" tabindex="1" title="Insert your Username" class="form-control username-input" required>
 								</div>
-							</div>
-							<div class="form-group me-2">
+							</section>
+							<section class="form-group me-2">
 								<label class="visually-hidden">Password</label>
 								<div class="input-group me-sm-2 input-group-sm">
-									<input type="password" name="userPassword" placeholder="Password" aria-label="Password" tabindex="2" title="Insert your Password" required class="form-control password-input">
+									<input type="password" name="password" placeholder="Password" tabindex="2" title="Insert your Password" class="form-control password-input" required>
 								</div>
-							</div>
-							<input type="submit" value="Log In" title="Log In" tabindex="3" class="btn btn-outline-primary btn-sm">
+							</section>
+							<section class="form-group form-check">
+								<label class="form-check-label visually-hidden">Session</label>
+								<input type="checkbox" name="session" value="true" tabindex="3" title="mantain Session" class="form-check-input">
+							</section>
+							<input type="submit" value="Auth" title="Auth" tabindex="4" class="auth-header btn btn-outline-primary btn-sm">
 						</form>
-						<a href="#sign-up" role="button" class="btn btn-primary sign-up-link btn-sm d-none d-lg-inline-flex ms-2">Sign up with Auth.42</a>
-					</div>
-				</li>
-			</ul>
-			<!-- <div id="user" class="fs-4 m-0">
-				<a href="#sidebar" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" class="profilePicture d-flex align-items-baseline text-nowrap link-body-emphasis text-decoration-none dropdown-toggle">
-					<span id="username" class="me-1">username</span>
-					<img src="static/images/profile_image.png" alt="mdo" width="64" height="64" id="profile_image" class="img-fluid rounded-circle">
+					</li>
+					<li class="nav-item">
+						<button tabindex="5" class="auth-42 btn btn-primary sign-in-link btn-sm d-none d-lg-inline-flex ms-2">Auth.42</button>
+					</li>
+				</ul>
+				<a href="#offcanvas-nav" data-bs-toggle="offcanvas"  data-bs-target="#offcanvas-nav" class="link-body-emphasis text-decoration-none dropdown-toggle">
+					<svg id="dropdown-toggle-svg" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+					</svg>
 				</a>
-			</div> -->
-			<a href="#sidebar" data-bs-toggle="offcanvas"  data-bs-target="#sidebar" aria-controls="sidebar" class="link-body-emphasis text-decoration-none dropdown-toggle">
-				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list " viewBox="0 0 16 16">
-					<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-				</svg>
-			</a>
-		</div>
-		<div class="offcanvas offcanvas-end fs-3" id="sidebar" aria-labelledby="sidebarLabel" data-bs-scroll="true" data-bs-backdrop="false" data-bs-auto-close="outside">
-			<div class="offcanvas-header pb-1">
-				<h5 class="offcanvas-title" id="sidebar"></h5>
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body container-fluid">
-				<!-- <form action="">
-					<div class="input-group">
-						<span>
-
-						</span>
-						<input type="text">
+				<div id="offcanvas-nav" class="offcanvas offcanvas-end fs-3 px-3" data-bs-scroll="true" data-bs-auto-close="outside">
+					<div id="auths-offcanvas" class="d-lg-none">
+						<form action="" class="auth-form mt-3 mb-2">
+							<section class="form-group mb-3">
+								<div class="input-group">
+									<label class="visually-hidden">Username</label>
+									<span class="input-group-text px-2">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+											<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+										</svg>
+									</span>
+									<input type="text" name="username" placeholder="Username" tabindex="1" title="Insert your Username" class="form-control username-input" required>
+								</div>
+							</section>
+							<section class="form-group mb-3">
+								<div class="input-group">
+									<label class="visually-hidden">Password</label>
+									<span class="input-group-text px-2">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+											<path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+										</svg>
+									</span>
+									<input type="password" name="password" placeholder="Password" tabindex="2" title="Insert your Password" class="form-control password-input" required>
+								</div>
+							</section>
+							<section class="form-check form-control-sm pb-2">
+								<input type="checkbox" name="session" value="true" tabindex="3" title="mantain Session" class="form-check-input">
+								<label class="form-check-label text-muted">mantain Session</label>
+							</section>
+							<input type="submit" value="Auth" title="Auth" tabindex="3" class="auth btn btn-outline-primary w-100">
+						</form>
+						<button tabindex="4" class="auth-42 btn btn-primary w-100">Auth.42</button>
+						<hr>
 					</div>
-				</form> -->
-				<ul class="navbar-nav navbar-list list-unstyled fs-4">
-					<li class="navbar-item">
-						<a href="/account" data-link class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end ps-0">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-person-fill" viewBox="0 0 16 16">
-									<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Account
-							</div>
+					<ul id="navlist-views" class="d-none navbar-nav navbar-list text-uppercase text-center">
+						<li class="nav-item">
+							<a href="./account" data-link class="nav-link fs-5">Account</a>
+						</li>
+						<li class="nav-item border-top">
+							<a href="./other-users" data-link class="nav-link fs-5">Other Users</a>
+						</li>
+						<li class="nav-item border-top">
+							<a href="./messages" data-link class="nav-link fs-5">Messages</a>
+						</li>
+						</li>
+						<li class="nav-item border-top">
+							<a href="/dashboard" data-link class="nav-link fs-5">Dashboard</a>
+						</li>
+						<li class="nav-item border-top border-bottom">
+							<a href="/security" data-link class="nav-link fs-5">Security</a>
+						</li>
+						<li class="nav-item border-top border-bottom">
+							<a id="log-out" href="/" class="nav-link fs-5">Log out</a>
+						</li>
+					</ul>
+					<div class="dropdown text-center">
+						<a href="#" data-bs-toggle="dropdown" role="button" class="nav-link dropdown-toggle text-nowrap text-uppercase fs-5">
+							<img src="./static/images/united-kingdom.svg" alt="mdo" width="16" height="16" class="me-2">
+							<span>English</span>
 						</a>
-					</li>
-					<li class="navbar-item">
-						<a href="/messages" data-link class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-envelope-fill" viewBox="0 0 16 16">
-									<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Messages
-							</div>
-						</a>
-					</li>
-					<li class="navbar-item">
-						<a href="/other-users" data-link class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-people-fill" viewBox="0 0 16 16">
-									<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Other users
-							</div>
-						</a>
-					</li>
-					<li class="navbar-item">
-						<a href="/dashboard" data-link class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-graph-up-arrow" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Dashboard
-							</div>
-						</a>
-					</li>
-					<li class="navbar-item">
-						<a href="/security" data-link class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-lock-fill" viewBox="0 0 16 16">
-									<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Security
-							</div>
-						</a>
-					</li>
-					<li class="dropdown navbar-item" data-bs-auto-close="outside">
-						<a href="#" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-nowrap row d-flex align-items-baseline link-body-emphasis text-decoration-none py-3 w-100">
-							<div class="col-4 text-end">
-								<img src="../static/images/england.svg" alt="mdo" width="24" height="24">
-							</div>
-							<div class="col-6">
-								English
-							</div>
-						</a>
-						<ul class="dropdown-menu text-center border-0 border-top w-100 me-1">
-							<li class="pt-0">
-								<h6 class="dropdown-header">Choose a language</h6>
-							</li>
-							<li class="pt-0">
-								<a href="/it" title="Italiano" class="dropdown-item">
-									<img src="../static/images/italy.svg" alt="mdo" width="16" height="16">
+						<ul class="dropdown-menu w-100 text-center">
+							<li><h6 class="d-none d-lg-block dropdown-header dropdown-item">Choose a language</h6></li>
+							<li>
+								<a href="/de/Magic" title="Italiano" rel="nofollow" class="dropdown-item text-uppercase hvr-sweep-to-right">
+									<img src="./static/images/italy.svg" alt="mdo" width="16" height="16" class="me-2">
 									<span>Italiano</span>
 								</a>
 							</li>
-							<li class="pt-0">
-								<a href="/rom" title="Română" class="dropdown-item">
-									<img src="../static/images/romania.svg" alt="mdo" width="16" height="16">
-									<span>Română</span>
+							<li>
+								<a href="/fr/Magic" title="Français" rel="nofollow" class="dropdown-item text-uppercase hvr-sweep-to-right">
+									<img src="./static/images/france.svg" alt="mdo" width="16" height="16" class="me-2">
+									<span>Français</span>
 								</a>
 							</li>
 						</ul>
-					</li>
-					<li class="navbar-item pt-3">
-						<a href="#logout" class="row d-flex nav-link link-body-emphasis text-decoration-none py-3 w-100 border-top">
-							<div class="col-4 text-end">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-1 bi bi-box-arrow-left" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-									<path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-								</svg>
-							</div>
-							<div class="col-8">
-								Log-out
-							</div>
-						</a>
-					</li>
-				</ul>
+					</div>
+				</div>
 			</div>
-		</div>
+		</nav>
 	</header>
-	<main class="container">
+	<main id="main" class="container overflow-auto">
 	</main>
 	<footer id="footer">
-		<div class="container-fluid border-top pt-1 overflow-hidden">
+		<div class="container-fluid border-top pt-1 bg-white position-absolute overflow-hidden">
 			<div class="row align-items-center">
 				<div class="col col-md-6">
 					<p id="copyright" class="text-muted text-center text-md-start"><small>© Copyright 2024&nbsp;. All rights reserved.</small></p>

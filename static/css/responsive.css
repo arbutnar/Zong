@@ -1,66 +1,12 @@
-@media (max-height: 790px) {
-	#sidebar li {
-		font-size: 16px;
-	}
-}
-
-@media (max-width: 720px) {
-	#header #profile_image {
-		height: 54px;
-		width: 54px;
-	}
-	#header #username {
-		font-size: 20px;
-	}
-}
-
 @media (max-width: 576px) {
-	#header .navbar {
-		height: 95px;
-	}
-	#header #profile_image {
-		height: 44px;
-		width: 44px;
-	}
-	#header .navbar {
-		padding: 1rem 1.5rem;
-	}
-	#sidebar li:first-child {
-		margin-top: 0;
-	}
-	.first-row {
-		flex-direction: column;
-		align-items: center;
-	}
-	main {
-		padding-top: 95px;
-	}
-}
-
-@media (max-width: 414px) {
-	#header #username {
-		display: none;
-	}
-	#sidebar {
+	#offcanvas-nav {
 		width: 100%;
-		border-left: 0;
+		border: 0;
 	}
 }
 
-@media (max-width: 310px) {
-	#header #profile_image {
+@media (max-width: 359px) {
+	#dropdown-toggle-svg {
 		display: none;
-	}
-	#header #user {
-		align-self: end;
-	}
-}
-
-@media (max-height: 400px) {
-	#header .navbar {
-		height: 95px;
-	}
-	#sidebar {
-		top: 95px;
 	}
 }

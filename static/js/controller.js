@@ -1,4 +1,4 @@
-import * as model from './model.js';
+import * as model from './model/model.js';
 import mainView from './views/MainView.js';
 import accountView from './views/AccountView.js';
 import messagesView from './views/MessagesView.js';
@@ -6,9 +6,6 @@ import otherUsersView from './views/OtherUsersView.js';
 import dashboardView from './views/DashboardView.js';
 import securityView from './views/SecurityView.js';
 import gameView from './views/GameView.js';
-import tournamentView from './views/TournamentView.js';
-// import practiceView from './views/PracticeView.js';
-import versusView from './views/VersusView.js';
 
 const routes = [
 	{ path: "/", view: mainView },
@@ -17,54 +14,90 @@ const routes = [
 	{ path: "/other-users", view: otherUsersView },
 	{ path: "/dashboard", view: dashboardView },
 	{ path: "/security", view: securityView },
-	{ path: "/tournament", view: tournamentView },
 ];
 
-const controlMain = async function () {
+const controlLogIn = async function(data) {
+	model.logUser(data);
+	mainView.toggleContent();
+	mainView.render(model.state.user);
+};
+
+const controlLogOut = async function() {
+	model.removeUser();
+	mainView.toggleContent();
+	mainView.render(model.state.user);
+};
+
+const controlRouting = async function() {
 	const match = routes.find(route => route.path === location.pathname);
 	if (location.pathname === "/practice" || location.pathname === "/versus")
-		controlGame();
+		startAnimation();
 	if (!match)
 		return ;
 	match.view.render(model.state.user);
 };
 
-const controlPaddle = function(e) {
-	if (location.pathname !== "/practice" && location.pathname !== "/versus")
-		return ;
-	model.changePlayerPaddleDirections(e.type, e.code);
-}
+const controlGame = function(event) {
+	model.state.game.canvas.resize();
+};
 
-const controlGame = function() {
+const startAnimation = function() {
 	let lastTime = 0;
 	let delta;
 
-	const updateGame = function(time) {
+	const animation = function(time) {
 		if (location.pathname !== "/practice" && location.pathname !== "/versus")
-		{
-			model.resetGame(location.pathname);
 			return ;
-		}
 		if (lastTime)
 		{
+			gameView.draw(model.state.game);
 			delta = time - lastTime;
-			model.state.board.context.clearRect(0, 0, model.state.board.width, model.state.board.height);
-			model.updateGameBall(delta);
-			model.updateGamePaddles(delta);
+			model.updateGame(delta);
 		}
-		// gameView.update(model.state.game);
 		lastTime = time;
-		requestAnimationFrame(updateGame);
+		requestAnimationFrame(animation);
 	};
-	gameView.render(model.state.game);
-	model.initGame(location.pathname);
-	requestAnimationFrame(updateGame);
-}
-
+	gameView.render();
+	const game = {
+		canvas: {
+			domElement: document.querySelector("canvas"),
+			color: "black",
+			stroke: {
+				color: "yellow",
+			}
+		},
+		ball: {
+			color: "green",
+			speed: 0.05,
+			size: 2,
+		},	
+		player1: {
+			color: "blue",
+			size: 20,
+			velocity: 0.5,
+			side: "left",
+			score: {
+				domContent: document.querySelector("#left-score"),
+			},
+		},
+		player2: {
+			color: "red",
+			size: 20,
+			velocity: 0.5,
+			side: "right",
+			score: {
+				domContent: document.querySelector("#right-score"),
+			},
+		}
+	};
+	model.initGame(game);
+	requestAnimationFrame(animation);
+};
 
 const init = function () {
-	mainView.addHandlerView(controlMain);
-	gameView.addHandlerView(controlPaddle);
+	mainView.addHandlerRouting(controlRouting);
+	mainView.addHandlerAuth(controlLogIn, controlLogOut);
+	gameView.addHandlerView(controlGame);
 };
 
 init();
