@@ -9,7 +9,7 @@ class MainView extends View {
 	_generateMarkup() {
 		return `
 			<div class="d-flex flex-column align-items-center w-100">
-				<h1 class="mt-sm-4 mt-sm-3 mt-3 mt-1 text-uppercase fw-normal">Game Mods</h1>
+				<h1 class="mt-sm-4 mb-sm-2 my-1 text-uppercase fw-normal">Game Mods</h1>
 				<div class="banners-cont container-fluid row">
 					<div class="col-12 col-sm-6 p-0 pb-2 pb-sm-0 pe-sm-2">
 						<div class="banner position-relative ${this._data ? 'd-none' : ''}">
@@ -57,7 +57,7 @@ class MainView extends View {
 								<img src="static/images/1v1.png" class="img-fluid" alt="versus">
 							</div>
 							<div class="unlocked banner position-relative ${this._data ? '' : 'd-none'}">
-								<a href="/versus" data-game-link>
+								<a href="/versus" data-link>
 									<div class="versus-overlay overlay img-fluid w-100 d-flex flex-column justify-content-center align-items-center text-white">
 										<h3 id="versus-title" class="d-flex flex-column align-items-center text-uppercase text-center m-0">
 											1 versus 1
@@ -73,7 +73,7 @@ class MainView extends View {
 							</div>
 						</div>
 						<div class="col-12">
-							<a href="/practice" data-game-link>
+							<a href="/practice" data-link>
 								<div class="unlocked banner position-relative">
 									<div class="practice-overlay overlay img-fluid d-flex flex-column justify-content-center align-items-center text-white">
 										<h3 class="mode-title text-uppercase text-center">Practice</h3>
@@ -89,11 +89,17 @@ class MainView extends View {
 		`;
 	}
 
-	toggleContent() {
+	toggleForms() {
 		document.querySelector('#auths-header').classList.toggle("d-none");
 		document.querySelector('#auths-offcanvas').classList.toggle("d-none");
 		document.querySelector('#navlist-views').classList.toggle("d-none");
 	}
+
+	// toggleOffcanvas() {
+	// 	document.querySelector('#offcanvas-nav').classList.toggle('show');
+	// 	document.querySelector('#offcanvas-nav').classList.toggle('d-none');
+	// 	document.querySelector('.screen-overlay').classList.toggle('d-none');
+	// }
 
 	addHandlerRouting(handler) {
 		document.addEventListener("DOMContentLoaded", handler);
@@ -112,22 +118,29 @@ class MainView extends View {
 		const forms = document.querySelectorAll('.auth-form');
 		forms.forEach(form => form.addEventListener("submit", e => {
 			e.preventDefault();
-			// if (e.target === forms[1])
-			// 	document.querySelectorAll('#offcanvas-nav, .offcanvas-backdrop').forEach(el => {
-			// 		el.classList.toggle('show');
-			// 	});
 			const formData = new FormData(form);
 			const data = Object.fromEntries(formData);
 			handlerLogIn(data);
 		}));
 		document.querySelector('#log-out').addEventListener("click", e => {
 			e.preventDefault();
-			// document.querySelectorAll('#offcanvas-nav, .offcanvas-backdrop').forEach(el => {
-			// 	el.classList.toggle('show');
-			// });
 			handlerLogOut();
 		});
 	}
+
+	// addHandlerOffcanvas() {
+	// 	document.querySelector('#offcanvas-toggler').addEventListener('click', e => {
+	// 		e.preventDefault();
+	// 		this.toggleOffcanvas();
+	// 	});
+	// 	document.querySelector('.screen-overlay').addEventListener('click', () => this.toggleOffcanvas());
+	// 	document.querySelector('#offcanvas-nav').addEventListener("click", e => {
+	// 		const link = e.target.closest("[data-link]");
+	// 		if (!link)
+	// 			return ;
+	// 		this.toggleOffcanvas();
+	// 	});
+	// }
 };
 
 export default new MainView();

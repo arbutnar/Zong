@@ -5,9 +5,9 @@ export const state = {
 const userObj = function(data) {
 	return {
 		username: data.username,
-		firstName: data.firstName ?? '',
-		lastName: data.lastName ?? '',
+		name: data.name ?? '',
 		email: data.email ?? '',
+		alias: data.alias ?? '',
 		coalition: data.coalition ?? '',
 		campus: data.campus ?? '',
 	};
