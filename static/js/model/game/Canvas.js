@@ -15,6 +15,10 @@ export default class {
 		this._color = info.color;
 		this._domElement = info.domElement;
 		this._stroke.color = info.stroke.color;
+		this.resize();
+	}
+
+	resize() {
 		const rect = this._domElement.getBoundingClientRect();
 		this._domElement.width = rect.width;
 		this._domElement.height = rect.height;

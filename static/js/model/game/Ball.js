@@ -7,9 +7,18 @@ export default class extends GameObj {
 	}
 
 	init(canvas, info) {
-		super.init(canvas, info);
-		this._radius = this._canvas.width * this._size / 100;
+		super.init(info);
+		this.resize(canvas);
 		this.reset(canvas);
+	}
+
+	resize(canvas) {
+		super.resize(canvas);
+		this._radius = canvas.width * this._sizeRatio / 100;
+		if (this._x + this._radius > canvas.width)
+			this._x = canvas.width - this._radius;
+		if (this._y + this._radius > canvas.height)
+			this._y = canvas.height - this._radius;
 	}
 
 	reset(canvas) {

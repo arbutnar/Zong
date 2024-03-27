@@ -2,18 +2,21 @@ export default class {
 	constructor() {
 		this._x = 0;
 		this._y = 0;
-		this._size = 0;
+		this._sizeRatio = 0;
+		this._speedRatio = 0;
 		this._speed = 0;
 		this._direction = { x: 0, y: 0 };
 		this._color = undefined;
-		this._canvas = undefined;
 	}
 
-	init(canvas, info) {
-		this._canvas = canvas;
-		this._speed = this.canvas.width * info.speed / 100;
+	init(info) {
+		this._speedRatio = info.speed;
 		this._color = info.color;
-		this._size = info.size;
+		this._sizeRatio = info.size;
+	}
+
+	resize(canvas) {
+		this._speed = canvas.width * this._speedRatio / 100;
 	}
 
 	move(delta) {
@@ -27,8 +30,11 @@ export default class {
 	get y() {
 		return this._y;
 	}
-	get size() {
-		return this._size;
+	get sizeRatio() {
+		return this._sizeRatio;
+	}
+	get speedRatio() {
+		return this._speedRatio;
 	}
 	get speed() {
 		return this._speed;
@@ -39,9 +45,6 @@ export default class {
 	get color() {
 		return this._color;
 	}
-	get canvas() {
-		return this._canvas;
-	}
 
 	set x(value) {
 		this._x = value;
@@ -49,8 +52,11 @@ export default class {
 	set y(value) {
 		this._y = value;
 	}
-	set size(value) {
-		this._size = value;
+	set sizeRatio(value) {
+		this._sizeRatio = value;
+	}
+	set speedRatio(value) {
+		this._speedRatio = value;
 	}
 	set speed(value) {
 		this._speed = value;
@@ -61,7 +67,4 @@ export default class {
 	set color(value) {
 		this._color = value;
 	}
-	set canvas(value) {
-		this._canvas = value;
-	}	
 }

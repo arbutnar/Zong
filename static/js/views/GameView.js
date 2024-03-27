@@ -7,7 +7,11 @@ class GameView extends View {
 	}
 
 	addHandlerView(handler) {
-		["keydown", "keyup"].forEach(event => window.addEventListener(event, handler));
+		["keydown", "keyup", "resize"].forEach(event => window.addEventListener(event, handler));
+	}
+
+	removeHandlerView(handler) {
+		
 	}
 
 	_generateMarkup() {
