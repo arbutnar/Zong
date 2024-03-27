@@ -1,4 +1,4 @@
-import * as model from './model.js';
+import * as model from './model/model.js';
 import mainView from './views/MainView.js';
 import accountView from './views/AccountView.js';
 import messagesView from './views/MessagesView.js';
@@ -6,6 +6,7 @@ import otherUsersView from './views/OtherUsersView.js';
 import dashboardView from './views/DashboardView.js';
 import securityView from './views/SecurityView.js';
 import notFoundView from './views/NotFoundView.js';
+import gameView from './views/GameView.js';
 
 let routes = [
 	{ path: 404, view: notFoundView },
