@@ -12,10 +12,6 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.offcanvas-backdrop {
-	top: 113px;
-}
-
 .banners-cont {
 	max-width: 1000px;
 }

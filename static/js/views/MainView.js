@@ -95,11 +95,24 @@ class MainView extends View {
 		document.querySelector('#navlist-views').classList.toggle("d-none");
 	}
 
-	// toggleOffcanvas() {
-	// 	document.querySelector('#offcanvas-nav').classList.toggle('show');
-	// 	document.querySelector('#offcanvas-nav').classList.toggle('d-none');
-	// 	document.querySelector('.screen-overlay').classList.toggle('d-none');
-	// }
+	toggleOffcanvas() {
+		document.querySelector('#offcanvas-nav').classList.toggle('show');
+		document.querySelector('.screen-overlay').classList.toggle('d-none');
+	}
+	
+	addHandlerOffcanvas(handler) {
+		document.querySelector('#offcanvas-toggler').addEventListener('click', e => {
+			e.preventDefault();
+			handler();
+		});
+		document.querySelector('.screen-overlay').addEventListener('click', () => handler());
+		document.querySelector('#offcanvas-nav').addEventListener("click", e => {
+			const link = e.target.closest("[data-link]");
+			if (!link)
+				return ;
+			handler();
+		});
+	}
 
 	addHandlerRouting(handler) {
 		document.addEventListener("DOMContentLoaded", handler);
@@ -107,7 +120,7 @@ class MainView extends View {
 		document.body.addEventListener("click", e => {
 			const link = e.target.closest("[data-link]");
 			if (!link)
-				return ;
+			return ;
 			e.preventDefault();
 			history.pushState(null, null, link.href);
 			handler();
@@ -119,6 +132,8 @@ class MainView extends View {
 		forms.forEach(form => form.addEventListener("submit", e => {
 			e.preventDefault();
 			const formData = new FormData(form);
+			form.querySelector('.username-input').value = '';
+			form.querySelector('.password-input').value = '';
 			const data = Object.fromEntries(formData);
 			handlerLogIn(data);
 		}));
@@ -127,20 +142,6 @@ class MainView extends View {
 			handlerLogOut();
 		});
 	}
-
-	// addHandlerOffcanvas() {
-	// 	document.querySelector('#offcanvas-toggler').addEventListener('click', e => {
-	// 		e.preventDefault();
-	// 		this.toggleOffcanvas();
-	// 	});
-	// 	document.querySelector('.screen-overlay').addEventListener('click', () => this.toggleOffcanvas());
-	// 	document.querySelector('#offcanvas-nav').addEventListener("click", e => {
-	// 		const link = e.target.closest("[data-link]");
-	// 		if (!link)
-	// 			return ;
-	// 		this.toggleOffcanvas();
-	// 	});
-	// }
 };
 
 export default new MainView();
